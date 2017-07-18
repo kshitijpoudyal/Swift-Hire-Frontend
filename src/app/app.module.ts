@@ -12,7 +12,7 @@ import {AppRoutingProviders, Routing} from './routes/routes.module';
 import {Http, HttpModule, RequestOptions} from '@angular/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialModule, MdDialog, MdDialogModule} from '@angular/material';
+import { MaterialModule, MdDialog, MdDialogModule, MdDatepickerModule, MdNativeDateModule } from '@angular/material';
 import {AuthService} from './services/auth.service';
 import {authHttpServiceFactory} from './services/authHttpServiceFactory';
 import {SearchComponent} from './components/search/search.component';
@@ -20,7 +20,12 @@ import {PostComponent} from './components/post/post.component';
 import {UpdatepostComponent} from './components/updatepost/updatepost.component';
 import {AuthGuard} from "./guards/auth.guard";
 import {SearchService} from "./services/search.service";
+<<<<<<< HEAD
 import {UserinfodialogComponent} from './components/userinfodialog/userinfodialog.component';
+=======
+import { UserinfodialogComponent } from './components/userinfodialog/userinfodialog.component';
+import { AgmCoreModule } from "@agm/core";
+>>>>>>> 1c4ccef02789e0cb3d4def3fdf257dcbd3984c74
 
 @NgModule({
   declarations: [
@@ -39,7 +44,16 @@ import {UserinfodialogComponent} from './components/userinfodialog/userinfodialo
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+<<<<<<< HEAD
     MaterialModule
+=======
+    MaterialModule,
+    MdDatepickerModule, MdNativeDateModule,
+    AgmCoreModule.forRoot({
+    apiKey: "AIzaSyBVIWPDjmmXhytVwdDsthBQAB_TTZixCic",
+    libraries: ["places"]
+  })
+>>>>>>> 1c4ccef02789e0cb3d4def3fdf257dcbd3984c74
   ],
   providers: [AppRoutingProviders, {
     provide: AuthHttp,
