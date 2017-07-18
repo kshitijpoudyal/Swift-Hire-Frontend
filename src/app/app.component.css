@@ -1,0 +1,18 @@
+.navbar-spacer {
+  flex: 1 1 auto;
+}
+.fixed-header{
+  position: fixed;
+  top:0;
+  z-index: 2;
+}
+
+.navbar-md-card {
+  margin: 0;
+  padding: 0;
+  background: none;
+  display: inline-block;
+  box-shadow: none !important;
+  color: white;
+  font-weight: normal;
+}

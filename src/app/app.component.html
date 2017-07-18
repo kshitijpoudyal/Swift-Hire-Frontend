@@ -1,0 +1,34 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <md-toolbar color="primary" class="fixed-header">
+    <button md-button [routerLink]="['home']">
+      <md-icon>home</md-icon>
+      <span>Home</span>
+    </button>
+    <span class="navbar-spacer"></span>
+
+    <div *ngIf="auth.authenticated()">
+      <md-card class="navbar-md-card">
+        <a md-mini-fab [routerLink]="['profile']"><img md-card-avatar src="{{profile?.picture}}"></a>
+      </md-card>
+
+      <button md-icon-button [mdMenuTriggerFor]="menu">
+        <md-icon>more_vert</md-icon>
+      </button>
+
+      <md-menu #menu="mdMenu">
+        <button md-button (click)="auth.logout()">
+          <md-icon>exit_to_app</md-icon>
+          <span>Logout</span>
+        </button>
+      </md-menu>
+    </div>
+
+    <button *ngIf="!auth.authenticated()" md-button (click)="auth.login()">
+      <md-icon>fingerprint</md-icon>
+      <span>Login</span>
+    </button>
+  </md-toolbar>
+
+  <router-outlet></router-outlet>
+</div>

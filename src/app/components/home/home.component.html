@@ -1,0 +1,36 @@
+<div class="home" *ngIf="auth.authenticated()">
+  <div class="row">
+    <div class="col-sm-8 col-md-6 col-centered">
+      <search-box></search-box>
+
+      <app-post></app-post>
+    </div>
+  </div>
+  <a md-fab class="fab" (click)="openDialog()">
+    <md-icon>add</md-icon>
+  </a>
+</div>
+<div *ngIf="!auth.authenticated()">
+  <md-grid-list cols="1" rowHeight="2:1">
+    <md-grid-tile>
+      <div class="row not-a-user">
+        <div class="col-sm-12 col-md-9 col-centered">
+          <md-card class="example-card">
+            <md-card-header>
+              <div class="welcome-title">
+                <h1>Welcome to Swift Hire</h1>
+                <br>
+              </div>
+            </md-card-header>
+            <md-card-content>
+              <p class="lead">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              </p>
+            </md-card-content>
+          </md-card>
+        </div>
+      </div>
+    </md-grid-tile>
+  </md-grid-list>
+
+</div>

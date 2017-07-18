@@ -1,0 +1,74 @@
+.user-card{
+  margin-top: -131px;
+}
+.username{
+  margin-bottom: 0;
+  padding-top: 16px;
+  font-size: x-large;
+}
+.email{
+  font-size: small;
+}
+
+.profile-void-box{
+  height: 192px;
+  background-color: #3f51b5;
+  margin-top: 64px;
+}
+.user-history{
+  margin-top: 20px;
+}
+
+.job-card{
+  margin-bottom: 20px;
+}
+.description{
+  font-size: large;
+  margin-top: 10px;
+}
+.base-align-icon{
+  display: inline-block;
+  vertical-align: middle;
+  color: dodgerblue;
+}
+.image-employee{
+  float: right;
+}
+.comment{
+  padding-right: 0;
+}
+.star-icon{
+  color: gold;
+}
+md-card-title-group{
+  width: 100%;
+}
+.card-title{
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0px;
+}
+a{
+  text-decoration: none;
+}
+.card-title-group{
+  width: 100%;
+}
+.job-title{
+  float: left;
+}
+.rating{
+  float: right;
+}
+
+.ongoing{
+  color: dodgerblue;
+}
+.completed{
+  color: greenyellow;
+}
+
+.applied-users img{
+  margin-right: 10px;
+  float: right;
+}

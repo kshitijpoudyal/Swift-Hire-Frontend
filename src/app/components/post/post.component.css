@@ -1,0 +1,39 @@
+.full-width {
+  width: 100%;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+.margin-5{
+  margin-left: 5px;
+}
+
+hr{
+  margin: 0;
+}
+a{
+  text-decoration: none;
+}
+.details{
+  margin-top: 5px;
+}
+
+md-card-content{
+  margin-bottom: 5px;
+}
+.apply{
+  float: right;
+}
+.card{
+  margin-top: 20px;
+}
+.description{
+  font-size: large;
+  margin-top: 10px;
+}
+.base-align-icon{
+  display: inline-block;
+  vertical-align: middle;
+  color: dodgerblue;
+}
