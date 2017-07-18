@@ -1,3 +1,21 @@
-/*.full-width {*/
-  /*width: 100%;*/
-/*}*/
+.full-width {
+   width: 100%; 
+} 
+ .postForm{
+  padding: 10px;
+} 
+agm-map {
+  height: 200px;
+  /* width:100%; */
+}
+.category{
+  display: inline-block;
+  vertical-align: baseline;
+}
+.btnPost{
+  float: right;
+  margin-top: 20px;
+}
+.mat-select-trigger{
+  margin-top: 5px;
+}
