@@ -23,7 +23,6 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
-    "angular-star-rating": "^3.0.3",
     "angular2-jwt": "^0.2.3",
     "auth0-js": "^8.8.0",
     "auth0-lock": "^10.18.0",

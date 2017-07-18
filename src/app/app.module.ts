@@ -15,13 +15,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule, MdDialog, MdDialogModule} from '@angular/material';
 import {AuthService} from './services/auth.service';
 import {authHttpServiceFactory} from './services/authHttpServiceFactory';
-import {StarRatingModule} from "angular-star-rating";
 import {SearchComponent} from './components/search/search.component';
 import {PostComponent} from './components/post/post.component';
 import {UpdatepostComponent} from './components/updatepost/updatepost.component';
 import {AuthGuard} from "./guards/auth.guard";
 import {SearchService} from "./services/search.service";
-import { UserinfodialogComponent } from './components/userinfodialog/userinfodialog.component';
+import {UserinfodialogComponent} from './components/userinfodialog/userinfodialog.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +39,7 @@ import { UserinfodialogComponent } from './components/userinfodialog/userinfodia
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    StarRatingModule
+    MaterialModule
   ],
   providers: [AppRoutingProviders, {
     provide: AuthHttp,

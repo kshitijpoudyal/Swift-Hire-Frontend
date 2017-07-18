@@ -22,6 +22,7 @@ export class SearchComponent implements OnInit {
   keyPressed(event) {
     if (event.code === "Enter") {
       this.searchService.searchJobs(this.searchQuery, this.category, this.location, this.minFees).subscribe(data => {
+
         console.log(data);
       });
     }
