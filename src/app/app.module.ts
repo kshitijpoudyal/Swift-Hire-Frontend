@@ -20,8 +20,12 @@ import {PostComponent} from './components/post/post.component';
 import {UpdatepostComponent} from './components/updatepost/updatepost.component';
 import {AuthGuard} from "./guards/auth.guard";
 import {SearchService} from "./services/search.service";
+<<<<<<< HEAD
+import {UserinfodialogComponent} from './components/userinfodialog/userinfodialog.component';
+=======
 import { UserinfodialogComponent } from './components/userinfodialog/userinfodialog.component';
 import { AgmCoreModule } from "@agm/core";
+>>>>>>> 1c4ccef02789e0cb3d4def3fdf257dcbd3984c74
 
 @NgModule({
   declarations: [
@@ -40,12 +44,16 @@ import { AgmCoreModule } from "@agm/core";
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+<<<<<<< HEAD
+    MaterialModule
+=======
     MaterialModule,
     MdDatepickerModule, MdNativeDateModule,
     AgmCoreModule.forRoot({
     apiKey: "AIzaSyBVIWPDjmmXhytVwdDsthBQAB_TTZixCic",
     libraries: ["places"]
   })
+>>>>>>> 1c4ccef02789e0cb3d4def3fdf257dcbd3984c74
   ],
   providers: [AppRoutingProviders, {
     provide: AuthHttp,

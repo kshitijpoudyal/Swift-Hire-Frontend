@@ -19,7 +19,7 @@ export class SearchService {
       'minFees': minFees
     };
 
-    return this.authHttp.get("http://localhost:8080/job/search", {search: params})
+    return this.http.get("http://localhost:8080/job/search", {search: params})
       .map(res => res.json());
   }
 
