@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.0",
     "@angular/animations": "^4.3.0",
     "@angular/cdk": "github:angular/cdk-builds",
     "@angular/common": "^4.0.0",
@@ -23,6 +24,9 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "@types/googlemaps": "^3.26.16",
+    "angular-google-maps": "^2.4.1",
+
     "angular2-jwt": "^0.2.3",
     "auth0-js": "^8.8.0",
     "auth0-lock": "^10.18.0",
