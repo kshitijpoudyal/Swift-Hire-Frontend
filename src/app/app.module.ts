@@ -22,6 +22,8 @@ import {AuthGuard} from "./guards/auth.guard";
 import {SearchService} from "./services/search.service";
 import { UserinfodialogComponent } from './components/userinfodialog/userinfodialog.component';
 import { AgmCoreModule } from "@agm/core";
+import {JoblistService} from "./services/joblist.service";
+import { ConvertToArrayPipe } from './pipes/convert-to-array.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { AgmCoreModule } from "@agm/core";
     SearchComponent,
     PostComponent,
     UpdatepostComponent,
-    UserinfodialogComponent
+    UserinfodialogComponent,
+    ConvertToArrayPipe
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,7 @@ import { AgmCoreModule } from "@agm/core";
     provide: AuthHttp,
     useFactory: authHttpServiceFactory,
     deps: [Http, RequestOptions]
-  }, AuthService, SearchService, AuthGuard],
+  }, AuthService, SearchService, AuthGuard,JoblistService],
 
   entryComponents: [
     UpdatepostComponent,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 
 @Component({
@@ -7,7 +7,7 @@ import {AuthService} from "../../services/auth.service";
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-
+@Input()job:object;
   constructor(public auth: AuthService) { }
 
   ngOnInit() {
