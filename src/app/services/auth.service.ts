@@ -53,7 +53,7 @@ export class AuthService {
     this.route.navigate(['']);
   }
 
-  public getUser(): string {
+  public getUser() {
     return JSON.parse(localStorage.getItem('profile'));
   }
 
