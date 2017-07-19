@@ -14,3 +14,11 @@ body{
   float: none;
   margin: 0 auto;
 }
+
+.float-right{
+  float: right;
+}
+
+.float-left{
+  float: left;
+}

@@ -1,10 +1,11 @@
-import {Component, OnInit, ViewChild, ElementRef, NgZone} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, NgZone, EventEmitter} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {MdDialogRef, MdNativeDateModule, MdDatepickerModule} from "@angular/material";
 import {FormBuilder, FormsModule, ReactiveFormsModule, FormGroup, Validators, FormControl} from "@angular/forms";
 import {MapsAPILoader} from '@agm/core';
 import {} from'@types/googlemaps';
 import {JobService} from "../../services/job.service";
+import {EmitterService} from "../../services/emitter.service";
 
 @Component({
   selector: 'app-updatepost',
@@ -17,15 +18,17 @@ export class UpdatepostComponent implements OnInit {
   public searchControl: FormControl;
   public zoom: number;
   public add: string;
+  //jobUpdated: EventEmitter<any> = new EventEmitter<any>();
 
   @ViewChild("search")
+
   public searchElementRef: ElementRef;
   postedBy;
   public addPostForm: FormGroup;
 
   constructor(public auth: AuthService, public fb: FormBuilder,
               private mapsAPILoader: MapsAPILoader,
-              private ngZone: NgZone, public jobService: JobService) {
+              private ngZone: NgZone, public jobService: JobService, public emitter: EmitterService) {
     this.createForm();
 
   }
@@ -38,8 +41,8 @@ export class UpdatepostComponent implements OnInit {
         'category': ['', Validators.required],
         'duration': ['', Validators.required],
         'hourlyRate': ['', Validators.required],
-        'preferedDate': ['', Validators.required],
-        'preferedTime': ['', Validators.required],
+        'preferredDate': ['', Validators.required],
+        'preferredTime': ['', Validators.required],
         'postedBy': [this.postedBy],
         'locations': {
           address: [],
@@ -49,10 +52,16 @@ export class UpdatepostComponent implements OnInit {
   }
 
   onSubmit() {
-    //console.log(this.addPostForm, this.longitude, this.latitude);
     this.jobService.add(this.addPostForm, this.searchControl, this.longitude, this.latitude).subscribe(data => {
-      console.log(data);
+      if(data.job){
+        console.log("response data:"+data.job);
+        this.emitter.setEventEmitter(data.job);
+      }else{
+        console.log("Job Not Added!!");
+      }
+
     });
+
   }
 
   ngOnInit() {
@@ -99,5 +108,9 @@ export class UpdatepostComponent implements OnInit {
         this.zoom = 12;
       });
     }
+  }
+
+  updateJob(){
+
   }
 }

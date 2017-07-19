@@ -26,8 +26,8 @@ export class JobService {
     let jobInfo = new Job();
     jobInfo.title = formData.controls['title'].value;
     jobInfo.category = formData.controls['category'].value;
-    jobInfo.preferred_date = formData.controls['preferedDate'].value;
-    jobInfo.preferred_time = formData.controls['preferedTime'].value;
+    jobInfo.preferred_date = formData.controls['preferredDate'].value;
+    jobInfo.preferred_time = formData.controls['preferredTime'].value;
     jobInfo.duration = parseInt(formData.controls['duration'].value);
     jobInfo.hourly_rate = parseFloat(formData.controls['hourlyRate'].value);
     jobInfo.description = formData.controls['description'].value;
