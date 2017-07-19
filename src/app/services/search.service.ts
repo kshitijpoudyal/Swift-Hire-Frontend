@@ -3,6 +3,7 @@ import {Http, Headers, RequestOptions} from "@angular/http";
 import "rxjs/add/operator/map";
 import {AuthService} from "./auth.service";
 import {AuthHttp} from "angular2-jwt";
+import {ServiceUrls} from "../models/ServiceUrls";
 
 @Injectable()
 export class SearchService {
@@ -13,13 +14,13 @@ export class SearchService {
   searchJobs(searchQuery, category, location, minFees) {
 
     let params = {
-      'searchQuery': searchQuery,
-      'category': category,
-      'location': location,
-      'minFees': minFees
+      'searchQuery': searchQuery ? searchQuery : '',
+      'category': category ? category : '',
+      'location': location ? location : '',
+      'minFees': minFees ? minFees : 0
     };
 
-    return this.authHttp.get("http://localhost:8080/job/search", {search: params})
+    return this.http.get(ServiceUrls.JOB_SEARCH_URL, {search: params})
       .map(res => res.json());
   }
 
