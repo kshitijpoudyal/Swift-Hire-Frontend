@@ -19,7 +19,6 @@ export class UpdatepostComponent implements OnInit {
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
-  categories: any[] = ['Plumbing', 'Fixing', 'Servicing', 'Maintenance'];
   postedBy;
   public addPostForm: FormGroup;
   constructor(public auth: AuthService, public fb: FormBuilder,
@@ -102,7 +101,4 @@ export class UpdatepostComponent implements OnInit {
       });
     }
   }
-
-
-
 }

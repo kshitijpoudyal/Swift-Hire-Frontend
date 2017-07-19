@@ -20,6 +20,8 @@ import {PostComponent} from './components/post/post.component';
 import {UpdatepostComponent} from './components/updatepost/updatepost.component';
 import {AuthGuard} from "./guards/auth.guard";
 import {SearchService} from "./services/search.service";
+import { ApplyService } from "./services/apply.service"
+
 import { UserinfodialogComponent } from './components/userinfodialog/userinfodialog.component';
 import { AgmCoreModule } from "@agm/core";
 
@@ -51,7 +53,7 @@ import { AgmCoreModule } from "@agm/core";
     provide: AuthHttp,
     useFactory: authHttpServiceFactory,
     deps: [Http, RequestOptions]
-  }, AuthService, SearchService, AuthGuard],
+  }, AuthService, SearchService, AuthGuard,ApplyService],
 
   entryComponents: [
     UpdatepostComponent,

@@ -1,3 +1,4 @@
+<h3>Add Post </h3>
 <form [formGroup]="addPostForm" class="postForm" (ngSubmit)="onSubmit()">
   <div class="row">
     <md-input-container class="col-md-4">
@@ -12,12 +13,14 @@
       <input mdInput [mdDatepicker]="picker" placeholder="Prefered Date" formControlName="preferedDate">
       <button mdSuffix [mdDatepickerToggle]="picker"></button>
       <md-datepicker #picker></md-datepicker>
+       <md-error>This field is required</md-error>
     </md-input-container>
   </div>
 
   <div class="row">
     <md-input-container class="col-md-4">
       <input mdInput placeholder="Prefered Time" formControlName="preferedTime" />
+       <md-error>This field is required</md-error>
     </md-input-container>
     <md-input-container class="col-md-4">
       <input mdInput placeholder="Duration" formControlName="duration" />
@@ -30,6 +33,7 @@
   </div>
   <md-input-container class="full-width">
     <textarea mdInput placeholder="Job Description" formControlName=description placeholder="Description"></textarea>
+     <md-error>This field is required</md-error>
   </md-input-container>
   <md-input-container class="full-width">
     <input mdInput placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search [formControl]="searchControl">
