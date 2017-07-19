@@ -1,11 +1,11 @@
 <form [formGroup]="addPostForm" class="postForm" (ngSubmit)="onSubmit()">
   <div class="row">
     <md-input-container class="col-md-4">
-      <input formControlName=title mdInput placeholder="Title" />
+      <input formControlName=title mdInput placeholder="Title"/>
       <md-error>This field is required</md-error>
     </md-input-container>
     <md-input-container class="col-md-4">
-      <input mdInput  placeholder="Category" class="col-md-4" formControlName="category" />
+      <input mdInput placeholder="Category" class="col-md-4" formControlName="category"/>
       <md-error>This field is required</md-error>
     </md-input-container>
     <md-input-container class="col-md-4">
@@ -17,14 +17,14 @@
 
   <div class="row">
     <md-input-container class="col-md-4">
-      <input mdInput placeholder="Prefered Time" formControlName="preferedTime" />
+      <input mdInput placeholder="Prefered Time" formControlName="preferedTime"/>
     </md-input-container>
     <md-input-container class="col-md-4">
-      <input mdInput placeholder="Duration" formControlName="duration" />
+      <input mdInput placeholder="Duration" formControlName="duration"/>
       <md-error>This field is required</md-error>
     </md-input-container>
-     <md-input-container class="col-md-4">
-      <input mdInput placeholder="Hourly Rate" formControlName="hourlyRate" />
+    <md-input-container class="col-md-4">
+      <input mdInput placeholder="Hourly Rate" formControlName="hourlyRate"/>
       <md-error>This field is required</md-error>
     </md-input-container>
   </div>
@@ -32,13 +32,17 @@
     <textarea mdInput placeholder="Job Description" formControlName=description placeholder="Description"></textarea>
   </md-input-container>
   <md-input-container class="full-width">
-    <input mdInput placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search [formControl]="searchControl">
+    <input mdInput placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
+           #search [formControl]="searchControl">
   </md-input-container>
   <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
     <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
   </agm-map>
 
-  <button md-button class="btn btn-success btnPost">
-  <i class="material-icons md-18">assignment</i> Post
-</button>
+  <button md-button [disabled]="!addPostForm.valid" class="btn btn-success btnPost">
+    <i class="material-icons md-18">assignment</i> Post
+  </button>
+  <button #closeBtn md-button md-dialog-close="true" class="btn btn-success btnPost">
+    <i class="material-icons md-18">assignment</i> Close
+  </button>
 </form>

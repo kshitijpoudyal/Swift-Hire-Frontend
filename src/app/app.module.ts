@@ -12,7 +12,7 @@ import {AppRoutingProviders, Routing} from './routes/routes.module';
 import {Http, HttpModule, RequestOptions} from '@angular/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MaterialModule, MdDialog, MdDialogModule, MdDatepickerModule, MdNativeDateModule } from '@angular/material';
+import {MaterialModule, MdDialog, MdDialogModule, MdDatepickerModule, MdNativeDateModule} from '@angular/material';
 import {AuthService} from './services/auth.service';
 import {authHttpServiceFactory} from './services/authHttpServiceFactory';
 import {SearchComponent} from './components/search/search.component';
@@ -20,10 +20,11 @@ import {PostComponent} from './components/post/post.component';
 import {UpdatepostComponent} from './components/updatepost/updatepost.component';
 import {AuthGuard} from "./guards/auth.guard";
 import {SearchService} from "./services/search.service";
-import { UserinfodialogComponent } from './components/userinfodialog/userinfodialog.component';
-import { AgmCoreModule } from "@agm/core";
 import {JoblistService} from "./services/joblist.service";
 import { ConvertToArrayPipe } from './pipes/convert-to-array.pipe';
+import {UserinfodialogComponent} from './components/userinfodialog/userinfodialog.component';
+import {AgmCoreModule} from "@agm/core";
+import {JobService} from "./services/job.service";
 
 @NgModule({
   declarations: [
@@ -46,15 +47,16 @@ import { ConvertToArrayPipe } from './pipes/convert-to-array.pipe';
     MaterialModule,
     MdDatepickerModule, MdNativeDateModule,
     AgmCoreModule.forRoot({
-    apiKey: "AIzaSyBVIWPDjmmXhytVwdDsthBQAB_TTZixCic",
-    libraries: ["places"]
-  })
+      apiKey: "AIzaSyBVIWPDjmmXhytVwdDsthBQAB_TTZixCic",
+      libraries: ["places"]
+    })
   ],
   providers: [AppRoutingProviders, {
     provide: AuthHttp,
     useFactory: authHttpServiceFactory,
     deps: [Http, RequestOptions]
-  }, AuthService, SearchService, AuthGuard,JoblistService],
+    
+  }, AuthService, SearchService, AuthGuard,JoblistService,JobService],
 
   entryComponents: [
     UpdatepostComponent,

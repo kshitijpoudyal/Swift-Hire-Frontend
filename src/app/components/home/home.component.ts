@@ -30,10 +30,10 @@ export class HomeComponent implements OnInit{
   }
 
   openDialog() {
-    this.dialog.open(UpdatepostComponent);
-    // this.dialogRef.afterClosed().subscribe(result => {
-    //   this.selectedOption = result;
-    // });
+    this.dialogRef = this.dialog.open(UpdatepostComponent);
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.selectedOption = result;
+    });
   }
 
 }
