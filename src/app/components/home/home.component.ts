@@ -17,9 +17,9 @@ export class HomeComponent {
   }
 
   openDialog() {
-    this.dialog.open(UpdatepostComponent);
-    // this.dialogRef.afterClosed().subscribe(result => {
-    //   this.selectedOption = result;
-    // });
+    this.dialogRef = this.dialog.open(UpdatepostComponent);
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.selectedOption = result;
+    });
   }
 }
