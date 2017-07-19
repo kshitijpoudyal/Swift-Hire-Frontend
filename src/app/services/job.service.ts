@@ -24,8 +24,8 @@ export class JobService {
     let jobInfo = {
       title: formData.controls['title'].value,
       category: formData.controls['category'].value,
-      preferred_date: formData.controls['preferedDate'].value,
-      preferred_time: formData.controls['preferedTime'].value,
+      preferred_date: formData.controls['preferredDate'].value,
+      preferred_time: formData.controls['preferredTime'].value,
       duration: formData.controls['duration'].value,
       hourly_rate: formData.controls['hourlyRate'].value,
       description: formData.controls['description'].value,
@@ -34,7 +34,6 @@ export class JobService {
         coords: [longitude, latitude]
       }
     };
-
     return this.http.post('http://localhost:8080/job/add', {userInfo, jobInfo}).map(res => res.json());
   }
 

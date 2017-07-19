@@ -26,6 +26,8 @@ import { ApplyService } from "./services/apply.service"
 import {UserinfodialogComponent} from './components/userinfodialog/userinfodialog.component';
 import {AgmCoreModule} from "@agm/core";
 import {JobService} from "./services/job.service";
+import {EmitterService} from "./services/emitter.service";
+import {UsersJobHistoryService} from "./services/users-job-history.service";
 
 @NgModule({
   declarations: [
@@ -56,8 +58,8 @@ import {JobService} from "./services/job.service";
     provide: AuthHttp,
     useFactory: authHttpServiceFactory,
     deps: [Http, RequestOptions]
-    
-  }, AuthService, SearchService, AuthGuard,JoblistService,JobService,ApplyService],
+
+  }, AuthService, SearchService, AuthGuard,JoblistService,JobService,ApplyService, EmitterService, UsersJobHistoryService],
 
   entryComponents: [
     UpdatepostComponent,

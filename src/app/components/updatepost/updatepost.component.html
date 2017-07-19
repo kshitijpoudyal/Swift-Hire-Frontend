@@ -1,8 +1,9 @@
 <h3>Add Post </h3>
+<!--(jobUpdated)="updateJob($event)"-->
 <form [formGroup]="addPostForm" class="postForm" (ngSubmit)="onSubmit()">
   <div class="row">
     <md-input-container class="col-md-4">
-      <input formControlName=title mdInput placeholder="Title"/>
+      <input formControlName="title" mdInput placeholder="Title"/>
       <md-error>This field is required</md-error>
     </md-input-container>
     <md-input-container class="col-md-4">
@@ -10,7 +11,7 @@
       <md-error>This field is required</md-error>
     </md-input-container>
     <md-input-container class="col-md-4">
-      <input mdInput [mdDatepicker]="picker" placeholder="Prefered Date" formControlName="preferedDate">
+      <input mdInput [mdDatepicker]="picker" placeholder="Preferred Date" formControlName="preferredDate">
       <button mdSuffix [mdDatepickerToggle]="picker"></button>
       <md-datepicker #picker></md-datepicker>
        <md-error>This field is required</md-error>
@@ -19,7 +20,7 @@
 
   <div class="row">
     <md-input-container class="col-md-4">
-      <input mdInput placeholder="Prefered Time" formControlName="preferedTime" />
+      <input mdInput placeholder="Preferred Time" formControlName="preferredTime" />
        <md-error>This field is required</md-error>
     </md-input-container>
     <md-input-container class="col-md-4">
@@ -32,7 +33,7 @@
     </md-input-container>
   </div>
   <md-input-container class="full-width">
-    <textarea mdInput placeholder="Job Description" formControlName=description placeholder="Description"></textarea>
+    <textarea mdInput placeholder="Job Description" formControlName="description" placeholder="Description"></textarea>
      <md-error>This field is required</md-error>
   </md-input-container>
   <md-input-container class="full-width">
@@ -42,11 +43,12 @@
   <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
     <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
   </agm-map>
-
-  <button md-button [disabled]="!addPostForm.valid" class="btn btn-success btnPost">
-    <i class="material-icons md-18">assignment</i> Post
-  </button>
-  <button #closeBtn md-button md-dialog-close="true" class="btn btn-success btnPost">
-    <i class="material-icons md-18">assignment</i> Close
-  </button>
+  <div class="clear-fix">
+    <button class="float-right" md-button [disabled]="!addPostForm.valid">
+      <i class="material-icons md-18">assignment</i> Post
+    </button>
+    <button class="float-left" #closeBtn md-button md-dialog-close="true">
+      <i class="material-icons md-18">close</i> Close
+    </button>
+  </div>
 </form>
