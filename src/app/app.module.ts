@@ -28,6 +28,8 @@ import {AgmCoreModule} from "@agm/core";
 import {JobService} from "./services/job.service";
 import {EmitterService} from "./services/emitter.service";
 import {UsersJobHistoryService} from "./services/users-job-history.service";
+import {ProfileAppliedJobsComponent} from "./components/profile-applied-jobs/profile-applied-jobs.component";
+import { ProfilePostedJobsComponent } from './components/profile-posted-jobs/profile-posted-jobs.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import {UsersJobHistoryService} from "./services/users-job-history.service";
     PostComponent,
     UpdatepostComponent,
     UserinfodialogComponent,
-    ConvertToArrayPipe
+    ConvertToArrayPipe,
+    ProfileAppliedJobsComponent,
+    ProfilePostedJobsComponent
   ],
   imports: [
     BrowserModule,

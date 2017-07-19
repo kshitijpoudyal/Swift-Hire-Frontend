@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-sm-8 col-md-6 col-centered">
       <search-box></search-box>
+
       <p *ngFor="let job of jobs | convertToArray">
         <app-post [job]="job"></app-post>
       </p>
