@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit{
 
   selectedOption: string;
 
-  //dialogRef: MdDialogRef<UpdatepostComponent>;
+  dialogRef: MdDialogRef<UpdatepostComponent>;
 
   constructor(public auth: AuthService, public dialog: MdDialog,public joblist:JoblistService) {
   }

@@ -100,9 +100,4 @@ export class UpdatepostComponent implements OnInit {
       });
     }
   }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f9278012a71f6f5a7c26b7cb1fcfc65346776216
 }

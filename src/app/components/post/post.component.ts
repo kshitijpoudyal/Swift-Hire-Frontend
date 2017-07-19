@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../services/auth.service";
 import { ApplyService } from "../../services/apply.service";
 
@@ -9,7 +8,7 @@ import { ApplyService } from "../../services/apply.service";
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-  
+
 @Input()job:object;
 
   jobApplied = {
