@@ -7,8 +7,16 @@ import { Http } from "@angular/http";
 export class ApplyService {
 
   constructor(public http: Http, public auth: AuthService, public authHttp: AuthHttp) { }
-  applyJobs(data:any){
-    console.log("Service called"+JSON.stringify(data));
-    return this.authHttp.post("http://localhost:8080/job/apply",data).map(res => res.json() );
+  applyJobs(data: any) {
+
+    let profile = this.auth.getUser();
+
+    let userInfo = {
+      _id: profile.identities[0].user_id,
+      name: profile.name,
+      email: profile.email,
+      picture: profile.picture
+    };
+    return this.authHttp.post("http://localhost:8080/job/apply", { userInfo, data }).map(res => res.json());
   }
 }

@@ -1,10 +1,10 @@
-import {Component, OnInit, ViewChild, ElementRef, NgZone} from '@angular/core';
-import {AuthService} from "../../services/auth.service";
-import {MdDialogRef, MdNativeDateModule, MdDatepickerModule} from "@angular/material";
-import {FormBuilder, FormsModule, ReactiveFormsModule, FormGroup, Validators, FormControl} from "@angular/forms";
-import {MapsAPILoader} from '@agm/core';
-import {} from'@types/googlemaps';
-import {JobService} from "../../services/job.service";
+import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { AuthService } from "../../services/auth.service";
+import { MdDialogRef, MdNativeDateModule, MdDatepickerModule } from "@angular/material";
+import { FormBuilder, FormsModule, ReactiveFormsModule, FormGroup, Validators, FormControl } from "@angular/forms";
+import { MapsAPILoader } from '@agm/core';
+import { } from '@types/googlemaps';
+import { JobService } from "../../services/job.service";
 
 @Component({
   selector: 'app-updatepost',
@@ -24,8 +24,8 @@ export class UpdatepostComponent implements OnInit {
   public addPostForm: FormGroup;
 
   constructor(public auth: AuthService, public fb: FormBuilder,
-              private mapsAPILoader: MapsAPILoader,
-              private ngZone: NgZone, public jobService: JobService) {
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone, public jobService: JobService) {
     this.createForm();
 
   }
@@ -100,9 +100,4 @@ export class UpdatepostComponent implements OnInit {
       });
     }
   }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f9278012a71f6f5a7c26b7cb1fcfc65346776216
 }
