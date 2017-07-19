@@ -17,7 +17,8 @@ export class ProfileComponent implements OnInit {
   status:string;
   norating:number[];
   appliedusers:object[];
-  jobs:any;
+  jobsPosted:any;
+  jobsApplyed:any;
   constructor(public auth: AuthService,public dialogBox: MdDialog,public joblist:UsersJobHistoryService) {
     this.rating = [1,2,3];
     this.norating = [1,2];
@@ -33,8 +34,10 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.profile = this.auth.getUser();
 
-    this.jobs = this.joblist.joblist().subscribe(data=>{
-      this.jobs = data;
+    this.joblist.joblist().subscribe(data=>{
+      console.log()
+      this.jobsApplyed = data.user_jobs_applyed;
+      this.jobsPosted = data.user_jobs_posted;
     });
   }
 

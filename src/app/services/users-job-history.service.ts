@@ -10,7 +10,7 @@ export class UsersJobHistoryService {
 
   }
   joblist(){
-    return this.authHttp.get("http://localhost:8080/user/job-history").map(res => res.json().jobs);
+    return this.authHttp.get("http://localhost:8080/user/job-history").map(res => res.json());
   }
 
 }
