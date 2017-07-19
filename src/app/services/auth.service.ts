@@ -45,7 +45,9 @@ export class AuthService {
       userInfo.name = profile.name;
       userInfo.email = profile.email;
       userInfo.picture = profile.picture;
-      http.post(ServiceUrls.ADD_USER_URL, {userInfo: userInfo}).map(res => res.json());
+      http.post(ServiceUrls.ADD_USER_URL, {userInfo: userInfo}).map(res => res.json()).subscribe(data => {
+
+      });
 
       this.loggedIn.emit(authResult.idTokenPayload);
     });
