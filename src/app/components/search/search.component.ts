@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {SearchService} from "../../services/search.service";
 
 @Component({
@@ -8,11 +8,13 @@ import {SearchService} from "../../services/search.service";
 })
 export class SearchComponent implements OnInit {
 
+  @Output() searchedJobs;
+
   public searchQuery;
   public category;
   public location;
   public minFees;
-
+  advancedSearch: boolean = false;
   constructor(public searchService: SearchService) {
   }
 
@@ -22,8 +24,15 @@ export class SearchComponent implements OnInit {
   keyPressed(event) {
     if (event.code === "Enter") {
       this.searchService.searchJobs(this.searchQuery, this.category, this.location, this.minFees).subscribe(data => {
-        console.log(data);
+        this.searchedJobs = data;
       });
+    }
+  }
+  toggle(){
+    if(!this.advancedSearch){
+      this.advancedSearch = true;
+    }else{
+      this.advancedSearch = false;
     }
   }
 

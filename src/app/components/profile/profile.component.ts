@@ -10,39 +10,11 @@ import {UsersJobHistoryService} from "../../services/users-job-history.service";
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent{
 
-  profile;
-  rating:number[];
-  status:string;
-  norating:number[];
-  appliedusers:object[];
-  jobsPosted:any;
-  jobsApplyed:any;
-  constructor(public auth: AuthService,public dialogBox: MdDialog,public joblist:UsersJobHistoryService) {
-    this.rating = [1,2,3];
-    this.norating = [1,2];
-    //this.status = "ongoing";
-    this.appliedusers = [{name:'Kshitij'},
-      {name:'Sulav'},
-      {name:'Jamuna'},
-      {name:'Manoj'},
-      {name:'Candle'},
-      {name:'Dinesh'}];
+  constructor(public auth: AuthService) {
   }
 
-  ngOnInit() {
-    this.profile = this.auth.getUser();
 
-    this.joblist.joblist().subscribe(data=>{
-      console.log()
-      this.jobsApplyed = data.user_jobs_applyed;
-      this.jobsPosted = data.user_jobs_posted;
-    });
-  }
-
-  openUserDialog() {
-    this.dialogBox.open(UserinfodialogComponent);
-  }
 
 }
