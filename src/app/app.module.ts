@@ -12,7 +12,7 @@ import {AppRoutingProviders, Routing} from './routes/routes.module';
 import {Http, HttpModule, RequestOptions} from '@angular/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MaterialModule, MdDialog, MdDialogModule, MdDatepickerModule, MdNativeDateModule } from '@angular/material';
+import {MaterialModule, MdDialog, MdDialogModule, MdDatepickerModule, MdNativeDateModule} from '@angular/material';
 import {AuthService} from './services/auth.service';
 import {authHttpServiceFactory} from './services/authHttpServiceFactory';
 import {SearchComponent} from './components/search/search.component';
@@ -20,10 +20,16 @@ import {PostComponent} from './components/post/post.component';
 import {UpdatepostComponent} from './components/updatepost/updatepost.component';
 import {AuthGuard} from "./guards/auth.guard";
 import {SearchService} from "./services/search.service";
+<<<<<<< HEAD
 import { ApplyService } from "./services/apply.service"
 
 import { UserinfodialogComponent } from './components/userinfodialog/userinfodialog.component';
 import { AgmCoreModule } from "@agm/core";
+=======
+import {UserinfodialogComponent} from './components/userinfodialog/userinfodialog.component';
+import {AgmCoreModule} from "@agm/core";
+import {JobService} from "./services/job.service";
+>>>>>>> f9278012a71f6f5a7c26b7cb1fcfc65346776216
 
 @NgModule({
   declarations: [
@@ -45,15 +51,19 @@ import { AgmCoreModule } from "@agm/core";
     MaterialModule,
     MdDatepickerModule, MdNativeDateModule,
     AgmCoreModule.forRoot({
-    apiKey: "AIzaSyBVIWPDjmmXhytVwdDsthBQAB_TTZixCic",
-    libraries: ["places"]
-  })
+      apiKey: "AIzaSyBVIWPDjmmXhytVwdDsthBQAB_TTZixCic",
+      libraries: ["places"]
+    })
   ],
   providers: [AppRoutingProviders, {
     provide: AuthHttp,
     useFactory: authHttpServiceFactory,
     deps: [Http, RequestOptions]
+<<<<<<< HEAD
   }, AuthService, SearchService, AuthGuard,ApplyService],
+=======
+  }, AuthService, SearchService, AuthGuard, JobService],
+>>>>>>> f9278012a71f6f5a7c26b7cb1fcfc65346776216
 
   entryComponents: [
     UpdatepostComponent,
