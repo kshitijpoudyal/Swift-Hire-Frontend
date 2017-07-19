@@ -20,16 +20,12 @@ import {PostComponent} from './components/post/post.component';
 import {UpdatepostComponent} from './components/updatepost/updatepost.component';
 import {AuthGuard} from "./guards/auth.guard";
 import {SearchService} from "./services/search.service";
-<<<<<<< HEAD
+import {JoblistService} from "./services/joblist.service";
+import { ConvertToArrayPipe } from './pipes/convert-to-array.pipe';
 import { ApplyService } from "./services/apply.service"
-
-import { UserinfodialogComponent } from './components/userinfodialog/userinfodialog.component';
-import { AgmCoreModule } from "@agm/core";
-=======
 import {UserinfodialogComponent} from './components/userinfodialog/userinfodialog.component';
 import {AgmCoreModule} from "@agm/core";
 import {JobService} from "./services/job.service";
->>>>>>> f9278012a71f6f5a7c26b7cb1fcfc65346776216
 
 @NgModule({
   declarations: [
@@ -39,7 +35,8 @@ import {JobService} from "./services/job.service";
     SearchComponent,
     PostComponent,
     UpdatepostComponent,
-    UserinfodialogComponent
+    UserinfodialogComponent,
+    ConvertToArrayPipe
   ],
   imports: [
     BrowserModule,
@@ -59,11 +56,8 @@ import {JobService} from "./services/job.service";
     provide: AuthHttp,
     useFactory: authHttpServiceFactory,
     deps: [Http, RequestOptions]
-<<<<<<< HEAD
-  }, AuthService, SearchService, AuthGuard,ApplyService],
-=======
-  }, AuthService, SearchService, AuthGuard, JobService],
->>>>>>> f9278012a71f6f5a7c26b7cb1fcfc65346776216
+    
+  }, AuthService, SearchService, AuthGuard,JoblistService,JobService,ApplyService],
 
   entryComponents: [
     UpdatepostComponent,
