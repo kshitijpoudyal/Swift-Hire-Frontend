@@ -27,7 +27,7 @@ export class JobService {
       preferred_date: formData.controls['preferedDate'].value,
       preferred_time: formData.controls['preferedTime'].value,
       duration: formData.controls['duration'].value,
-      hourlyRate: formData.controls['hourlyRate'].value,
+      hourly_rate: formData.controls['hourlyRate'].value,
       description: formData.controls['description'].value,
       location: {
         address: addressControl.value,
