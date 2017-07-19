@@ -22,6 +22,7 @@ import {AuthGuard} from "./guards/auth.guard";
 import {SearchService} from "./services/search.service";
 import {JoblistService} from "./services/joblist.service";
 import { ConvertToArrayPipe } from './pipes/convert-to-array.pipe';
+import { ApplyService } from "./services/apply.service"
 import {UserinfodialogComponent} from './components/userinfodialog/userinfodialog.component';
 import {AgmCoreModule} from "@agm/core";
 import {JobService} from "./services/job.service";
@@ -56,7 +57,7 @@ import {JobService} from "./services/job.service";
     useFactory: authHttpServiceFactory,
     deps: [Http, RequestOptions]
     
-  }, AuthService, SearchService, AuthGuard,JoblistService,JobService],
+  }, AuthService, SearchService, AuthGuard,JoblistService,JobService,ApplyService],
 
   entryComponents: [
     UpdatepostComponent,
