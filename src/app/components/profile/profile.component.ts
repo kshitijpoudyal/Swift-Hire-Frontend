@@ -10,9 +10,21 @@ import {UsersJobHistoryService} from "../../services/users-job-history.service";
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent{
+export class ProfileComponent implements OnInit{
+  jobsPosted:any;
+  jobsApplyed:any;
+  ngOnInit(): void {
+    this.joblist.postedJobList(this.auth.getUser().identities[0].user_id).subscribe(data=>{
+      this.jobsPosted = data.jobs.jobs_posted[0];
+      console.log(this.jobsPosted);
+    });
 
-  constructor(public auth: AuthService) {
+    this.joblist.appliedJoblist(this.auth.getUser().identities[0].user_id).subscribe(data=>{
+      this.jobsApplyed = data.jobs.jobs_applied[0];
+    });
+  }
+
+  constructor(public auth: AuthService,public joblist:UsersJobHistoryService) {
   }
 
 

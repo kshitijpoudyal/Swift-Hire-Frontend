@@ -7,7 +7,6 @@ export class EmitterService{
     this.eventEmitter = new EventEmitter();
   }
   public setEventEmitter(value){
-    console.log("emitter set");
     this.eventEmitter.emit(value);
   }
 

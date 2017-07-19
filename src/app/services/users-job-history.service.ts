@@ -10,7 +10,7 @@ export class UsersJobHistoryService {
   constructor(public http: Http, public auth: AuthService, public authHttp: AuthHttp) {
 
   }
-  applyedJoblist(user_id){
+  appliedJoblist(user_id){
     return this.authHttp.get(ServiceUrls.PROFILE_APPLIED_JOBS_URL+user_id).map(res => res.json());
   }
 
