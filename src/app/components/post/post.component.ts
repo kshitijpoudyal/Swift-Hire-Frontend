@@ -9,15 +9,16 @@ import { ApplyService } from "../../services/apply.service";
 })
 export class PostComponent implements OnInit {
 
+  @Input() job;
+
   constructor(public auth: AuthService, private applyService: ApplyService) { }
 
   ngOnInit() {
   }
   apply() {
-    console.log("Applied");
-    // this.applyService.applyJobs(this.jobApplied).subscribe(
-    //   (data) => console.log("---->" + JSON.stringify(data))
-    // );
+    this.applyService.applyJobs(this.job).subscribe(
+      (data) => console.log("---->" + JSON.stringify(data))
+    );
   }
 
 }
