@@ -4,6 +4,9 @@ import 'rxjs/add/operator/filter';
 import {tokenNotExpired} from "angular2-jwt";
 
 import Auth0Lock from 'auth0-lock';
+import {Http} from "@angular/http";
+import {User} from "../models/User";
+import {ServiceUrls} from "../models/ServiceUrls";
 
 @Injectable()
 export class AuthService {
@@ -28,12 +31,22 @@ export class AuthService {
     }
   });
 
-  constructor(public route: Router) {
+  constructor(public route: Router, public http: Http) {
     this.loggedIn = new EventEmitter();
     this.lock.on('authenticated', (authResult) => {
+      let profile = authResult.idTokenPayload;
+
       localStorage.setItem('token', authResult.idToken);
       localStorage.setItem('accessToken', authResult.accessToken);
-      localStorage.setItem('profile', JSON.stringify(authResult.idTokenPayload));
+      localStorage.setItem('profile', JSON.stringify(profile));
+
+      let userInfo = new User();
+      userInfo._id = profile.identities[0].user_id;
+      userInfo.name = profile.name;
+      userInfo.email = profile.email;
+      userInfo.picture = profile.picture;
+      http.post(ServiceUrls.ADD_USER_URL, {userInfo: userInfo}).map(res => res.json());
+
       this.loggedIn.emit(authResult.idTokenPayload);
     });
   }

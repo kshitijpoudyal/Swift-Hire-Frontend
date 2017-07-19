@@ -2,6 +2,9 @@ import {Injectable} from '@angular/core';
 import {AuthService} from "./auth.service";
 import {AuthHttp} from "angular2-jwt";
 import {Http} from "@angular/http";
+import {User} from "../models/User";
+import {Job} from "../models/Job";
+import {ServiceUrls} from "../models/ServiceUrls";
 
 @Injectable()
 export class JobService {
@@ -14,28 +17,27 @@ export class JobService {
 
     let profile = this.auth.getUser();
 
-    let userInfo = {
-      _id: profile.identities[0].user_id,
-      name: profile.name,
-      email: profile.email,
-      picture: profile.picture
-    };
+    let userInfo = new User();
+    userInfo._id = profile.identities[0].user_id;
+    userInfo.name = profile.name;
+    userInfo.email = profile.email;
+    userInfo.picture = profile.picture;
 
-    let jobInfo = {
-      title: formData.controls['title'].value,
-      category: formData.controls['category'].value,
-      preferredDate: formData.controls['preferedDate'].value,
-      preferredTime: formData.controls['preferedTime'].value,
-      duration: formData.controls['duration'].value,
-      hourlyRate: formData.controls['hourlyRate'].value,
-      description: formData.controls['description'].value,
-      location: {
-        address: addressControl.value,
-        coords: [longitude, latitude]
-      }
+    let jobInfo = new Job();
+    jobInfo.title = formData.controls['title'].value;
+    jobInfo.category = formData.controls['category'].value;
+    jobInfo.preferred_date = formData.controls['preferredDate'].value;
+    jobInfo.preferred_time = formData.controls['preferredTime'].value;
+    jobInfo.duration = parseInt(formData.controls['duration'].value);
+    jobInfo.hourly_rate = parseFloat(formData.controls['hourlyRate'].value);
+    jobInfo.description = formData.controls['description'].value;
+    jobInfo.location = {
+      address: addressControl.value,
+      coords: [longitude, latitude]
     };
+    jobInfo.status = 'pending';
 
-    return this.http.post('http://localhost:8080/job/add', {userInfo, jobInfo}).map(res => res.json());
+    return this.http.post(ServiceUrls.ADD_JOB_URL, {userInfo, jobInfo}).map(res => res.json());
   }
 
 }
