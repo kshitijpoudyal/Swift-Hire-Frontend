@@ -1,3 +1,4 @@
+
 import {Component, OnInit, ViewChild, ElementRef, NgZone, EventEmitter} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {MdDialogRef, MdNativeDateModule, MdDatepickerModule} from "@angular/material";
@@ -108,9 +109,5 @@ export class UpdatepostComponent implements OnInit {
         this.zoom = 12;
       });
     }
-  }
-
-  updateJob(){
-
   }
 }
