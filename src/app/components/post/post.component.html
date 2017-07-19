@@ -1,6 +1,6 @@
 <md-card class="card">
   <md-card-header>
-    <img md-card-avatar md-card-sm-image src="{{job?.posted_by.picture}}">
+    <img md-card-avatar md-card-sm-image src="{{job.posted_by?.picture}}">
     <md-card-title-group class="margin-5">
       <md-card-title>
         <h5>
@@ -10,7 +10,7 @@
             {{job.category}}</small>
         </h5>
       </md-card-title>
-      <md-card-subtitle>Offered by: <strong>{{job.posted_by.name}}</strong> in <strong>{{job.location.address}}</strong></md-card-subtitle>
+      <md-card-subtitle>Offered by: <strong>{{job.posted_by?.name}}</strong> in <strong>{{job.location?.address}}</strong></md-card-subtitle>
     </md-card-title-group>
   </md-card-header>
   <md-card-content>

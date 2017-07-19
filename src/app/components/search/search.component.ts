@@ -14,7 +14,7 @@ export class SearchComponent implements OnInit {
   public category;
   public location;
   public minFees;
-
+  advancedSearch: boolean = false;
   constructor(public searchService: SearchService) {
   }
 
@@ -26,6 +26,13 @@ export class SearchComponent implements OnInit {
       this.searchService.searchJobs(this.searchQuery, this.category, this.location, this.minFees).subscribe(data => {
         this.searchedJobs = data;
       });
+    }
+  }
+  toggle(){
+    if(!this.advancedSearch){
+      this.advancedSearch = true;
+    }else{
+      this.advancedSearch = false;
     }
   }
 
