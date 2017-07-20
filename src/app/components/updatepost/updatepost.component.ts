@@ -34,7 +34,7 @@ export class UpdatepostComponent implements OnInit {
     this.addPostForm = this.fb.group(
       {
         'title': ['', Validators.required],
-        'description': ['', [Validators.required, Validators.minLength]],
+        'description': ['', Validators.required],
         'category': ['', Validators.required],
         'duration': ['', Validators.required],
         'hourlyRate': ['', Validators.required],
