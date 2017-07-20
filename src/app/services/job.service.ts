@@ -32,7 +32,7 @@ export class JobService {
     jobInfo.hourly_rate = parseFloat(formData.controls['hourlyRate'].value);
     jobInfo.description = formData.controls['description'].value;
     jobInfo.location = {
-      address: addressControl.value,
+      address: addressControl,
       coords: [longitude, latitude]
     };
     jobInfo.status = 'pending';

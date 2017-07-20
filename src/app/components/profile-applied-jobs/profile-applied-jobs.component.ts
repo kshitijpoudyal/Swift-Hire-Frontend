@@ -24,11 +24,7 @@ export class ProfileAppliedJobsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.joblist.postedJobList(this.auth.getUser().identities.user_id).subscribe(data=>{
-      console.log()
-      this.jobsApplyed = data.user_jobs_applyed;
-      this.jobsPosted = data.user_jobs_posted;
-    });
+
   }
 
 }
