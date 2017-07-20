@@ -25,16 +25,18 @@ export class ProfilePostedJobsComponent implements OnInit {
     this.profile = this.auth.getUser();
 
     this.jobs.postedJobList(this.jobPosted.job_id).subscribe(data=>{
-      this.jobDetailedList = data.jobs;
-      this.appliedusers = data.jobs.applied_by;
-      this.status = data.jobs.status;
-      if(data.jobs.rating>=0){
-        this.rating = Array(data.jobs.rating).fill("*");
-        this.norating = Array(5-data.jobs.rating).fill("*");
-      }
+    this.jobDetailedList = data.jobs;
+    this.appliedusers = data.jobs.applied_by;
+    this.status = data.jobs.status;
+    if(data.jobs.rating>=0){
+      this.rating = Array(data.jobs.rating).fill("*");
+      this.norating = Array(5-data.jobs.rating).fill("*");
+    }
     });
   }
-  openUserDialog() {
-    this.dialogBox.open(UserinfodialogComponent);
+  openUserDialog(applieduser) {
+    this.dialogBox.open(UserinfodialogComponent,{
+      data: applieduser
+    });
   }
 }

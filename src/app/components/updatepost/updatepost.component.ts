@@ -19,12 +19,9 @@ export class UpdatepostComponent implements OnInit {
   public searchControl: FormControl;
   public zoom: number;
   public add: string;
-  //jobUpdated: EventEmitter<any> = new EventEmitter<any>();
-
   @ViewChild("search")
 
   public searchElementRef: ElementRef;
-  postedBy;
   public addPostForm: FormGroup;
 
   constructor(public auth: AuthService, public fb: FormBuilder,
@@ -44,7 +41,6 @@ export class UpdatepostComponent implements OnInit {
         'hourlyRate': ['', Validators.required],
         'preferredDate': ['', Validators.required],
         'preferredTime': ['', Validators.required],
-        'postedBy': [this.postedBy],
         'locations': {
           address: [],
           coords: []
