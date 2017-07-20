@@ -3,6 +3,7 @@ import {AuthService} from "../../services/auth.service";
 import {MdDialog} from "@angular/material";
 import {UserinfodialogComponent} from "../userinfodialog/userinfodialog.component";
 import {JobListProfileService} from "../../services/job-list-profile.service";
+import { CommentService } from "app/services/comment.service";
 
 @Component({
   selector: 'app-profile-posted-jobs',
@@ -17,7 +18,7 @@ export class ProfilePostedJobsComponent implements OnInit {
   norating:number[];
   appliedusers:any=[];
   jobDetailedList:any=[];
-  constructor(public auth: AuthService,public dialogBox: MdDialog, public jobs: JobListProfileService) {
+  constructor(public auth: AuthService,public dialogBox: MdDialog, public jobs: JobListProfileService,public commentPostService:CommentService) {
 
   }
 
@@ -38,5 +39,11 @@ export class ProfilePostedJobsComponent implements OnInit {
     this.dialogBox.open(UserinfodialogComponent,{
       data: applieduser
     });
+  }
+  commentPosted(comment){
+    console.log("KEy enter"+JSON.stringify(this.jobDetailedList.approved_user._id) );
+    return this.commentPostService.commentForEmployer(comment,this.jobPosted.job_id,this.jobPosted.posted_by).subscribe(data=>{
+      console.log("----->"+JSON.stringify(data));
+    })
   }
 }
