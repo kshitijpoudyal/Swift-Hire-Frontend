@@ -56,23 +56,35 @@
       </div>
     </div>
 
-    <div *ngIf="status==='completed' && !jobDetailedList.comment" class="row">
-      <div class="col-sm-11 comment">
-        <!--<md-input-container class="full-width">-->
-          <!--<textarea mdInput placeholder="Address"></textarea>-->
-        <!--</md-input-container>-->
-        <p class="lead">No Feedback!</p>
+    <div *ngIf="status==='completed' && !jobDetailedList.comment">
+      <div class="row">
+        <div class="col-sm-11 comment">
+            <p class="feedback">this is a feed back from employee!!</p>
+        </div>
+        <div class="col-sm-1">
+          <img md-card-avatar src="{{this.auth.getUser()?.picture}}">
+        </div>
       </div>
-
-      <div class="col-sm-1">
-        <img md-card-avatar src="{{this.auth.getUser()?.picture}}">
+      <hr>
+      <div class="row">
+        <div class="col-sm-1">
+          <img md-card-avatar src="{{this.auth.getUser()?.picture}}">
+        </div>
+        <div class="col-sm-11 comment">
+          <md-input-container class="full-width">
+            <textarea mdInput placeholder="Give a Feedback"></textarea>
+          </md-input-container>
+        </div>
       </div>
     </div>
 
     <div *ngIf="status==='pending'" class="row applied-users">
       <div class="col-sm-12">
+        <span *ngIf="!appliedusers?.length > 0">
+          <p class="lead">No one has applied for this job till now!!</p>
+        </span>
         <span *ngFor="let applieduser of appliedusers">
-           <img md-card-avatar (click)="openUserDialog()" mdTooltip="{{applieduser.name}}" src="{{applieduser?.picture}}">
+           <img md-card-avatar (click)="openUserDialog(applieduser)" mdTooltip="{{applieduser.name}}" src="{{applieduser?.picture}}">
         </span>
       </div>
     </div>
