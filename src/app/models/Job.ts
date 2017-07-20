@@ -22,7 +22,6 @@ export class Job {
   posted_by: User;
   applied_by: Array<User>;
   approved_user: User;
-  granted: Boolean;
 
   constructor() {
     this.applied_by = [];

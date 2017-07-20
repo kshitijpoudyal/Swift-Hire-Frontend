@@ -40,4 +40,8 @@ export class JobService {
     return this.http.post(ServiceUrls.ADD_JOB_URL, {userInfo, jobInfo}).map(res => res.json());
   }
 
+  closeJob(id) {
+    return this.http.get(ServiceUrls.CLOSE_JOB_URL + id).map(res => res.json());
+  }
+
 }

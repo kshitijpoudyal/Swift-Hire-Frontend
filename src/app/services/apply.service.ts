@@ -23,6 +23,7 @@ export class ApplyService {
     let jobInfo = new Job();
     jobInfo._id = data._id;
     jobInfo.title = data.title;
+    jobInfo.location = data.location;
     jobInfo.category = data.category;
     jobInfo.preferred_date = data.preferred_date;
     jobInfo.preferred_time = data.preferred_time;
@@ -32,7 +33,6 @@ export class ApplyService {
     jobInfo.applied_by = data.applied_by;
     jobInfo.posted_by = data.posted_by;
     jobInfo.status = data.status;
-    jobInfo.granted = data.gradient;
     jobInfo.approved_user = data.approved_user;
     return this.http.post(ServiceUrls.APPLY_JOB_URL, {jobInfo, userInfo}).map(res => res.json());
   }
