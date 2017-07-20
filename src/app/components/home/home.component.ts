@@ -20,17 +20,17 @@ export class HomeComponent implements OnInit {
   dialogRef: MdDialogRef<UpdatepostComponent>;
 
   constructor(public auth: AuthService, public dialog: MdDialog, public joblist: JoblistService, public emitter: EmitterService) {
+    auth.loggedIn.subscribe(data => {
+      this.joblist.joblist().subscribe(data => {
+        this.jobs = data;
+      });
+    });
 
-    if (this.auth.authenticated()) {
+    if (auth.authenticated()) {
       this.joblist.joblist().subscribe(data => {
         this.jobs = data;
       });
     }
-
-    this.emitter.eventEmitter.subscribe((job) => {
-      this.jobs.unshift(job);
-      this.ngOnInit();
-    });
   }
 
   openDialog() {

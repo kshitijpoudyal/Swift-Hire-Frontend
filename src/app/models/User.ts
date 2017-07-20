@@ -16,6 +16,7 @@ interface AppliedJob {
   comment: string;
   rating: number;
   preferred_date: Date;
+  granted: Boolean
 }
 
 export class User {

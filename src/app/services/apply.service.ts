@@ -13,18 +13,18 @@ export class ApplyService {
   }
 
   applyJobs(data: any) {
-     let profile=this.auth.getUser();
-     let userInfo = new User();
+    let profile = this.auth.getUser();
+    let userInfo = new User();
     userInfo._id = profile.identities[0].user_id;
     userInfo.name = profile.name;
     userInfo.email = profile.email;
     userInfo.picture = profile.picture;
 
     let jobInfo = new Job();
-    jobInfo._id=data._id;
+    jobInfo._id = data._id;
     jobInfo.title = data.title;
     jobInfo.category = data.category;
-    jobInfo.preferred_date =data.preferred_date;
+    jobInfo.preferred_date = data.preferred_date;
     jobInfo.preferred_time = data.preferred_time;
     jobInfo.duration = data.duration;
     jobInfo.hourly_rate = data.hourly_rate;
@@ -32,6 +32,8 @@ export class ApplyService {
     jobInfo.applied_by = data.applied_by;
     jobInfo.posted_by = data.posted_by;
     jobInfo.status = data.status;
-    return this.http.post(ServiceUrls.APPLY_JOB_URL, {jobInfo,userInfo}).map(res => res.json());
+    jobInfo.granted = data.gradient;
+    jobInfo.approved_user = data.approved_user;
+    return this.http.post(ServiceUrls.APPLY_JOB_URL, {jobInfo, userInfo}).map(res => res.json());
   }
 }
