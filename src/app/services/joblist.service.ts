@@ -11,7 +11,8 @@ export class JoblistService {
   }
 
   joblist() {
-    return this.authHttp.get(ServiceUrls.LIST_JOBS_URL).map(res => res.json().jobs);
+    let id = this.auth.getUser().identities[0].user_id;
+    return this.authHttp.get(ServiceUrls.LIST_JOBS_URL + id).map(res => res.json().jobs);
   }
 
 }
