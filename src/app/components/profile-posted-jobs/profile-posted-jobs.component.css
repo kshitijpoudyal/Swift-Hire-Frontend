@@ -1,0 +1,60 @@
+.job-card{
+  margin-bottom: 20px;
+}
+.description{
+  font-size: large;
+  margin-top: 10px;
+}
+.base-align-icon{
+  display: inline-block;
+  vertical-align: middle;
+  color: dodgerblue;
+}
+.image-employee{
+  float: right;
+}
+.comment{
+  padding-right: 0;
+}
+.star-icon{
+  color: gold;
+}
+md-card-title-group{
+  width: 100%;
+}
+.card-title{
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0px;
+}
+a{
+  text-decoration: none;
+}
+.card-title-group{
+  width: 100%;
+}
+.job-title{
+  float: left;
+}
+.rating{
+  float: right;
+}
+
+.ongoing{
+  color: dodgerblue;
+}
+.completed{
+  color: #4CAF50;
+}
+.pending{
+  color: #9C27B0;
+}
+
+.applied-users img{
+  margin-right: 10px;
+  float: right;
+}
+.status{
+  font-size: small;
+  float: right;
+}

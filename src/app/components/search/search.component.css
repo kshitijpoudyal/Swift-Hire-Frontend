@@ -1,0 +1,17 @@
+.full-width {
+  width: 100%;
+}
+/*.search-bar{*/
+  /*padding-right: 0;*/
+/*}*/
+.advanced-toggle{
+  float: right;
+}
+
+.search-input{
+  width:90%;
+}
+
+md-card{
+  margin-top: 20px;
+}
