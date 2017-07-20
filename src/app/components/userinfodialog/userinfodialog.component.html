@@ -14,20 +14,20 @@
 <!--</md-card>-->
 <!--<img md-card-avatar md-card-md-image src="{{data.picture}}">-->
 <md-card-header>
-  <img md-card-avatar md-card-sm-image src="{{data.picture}}">
+  <img md-card-avatar md-card-sm-image src="{{data.applieduser.picture}}">
   <md-card-title-group class="margin-5">
     <md-card-title>
       <h5>
-        {{data.name}}
+        {{data.applieduser.name}}
       </h5>
     </md-card-title>
-    <md-card-subtitle>Email: <strong>{{data?.email}}</strong></md-card-subtitle>
+    <md-card-subtitle>Email: <strong>{{data.applieduser?.email}}</strong></md-card-subtitle>
   </md-card-title-group>
 </md-card-header>
 <md-card-content>
 </md-card-content>
 <hr>
-<span *ngFor="let job of data.jobs_applied">
+<span *ngFor="let job of data.applieduser.jobs_applied">
 <md-card>
   <md-card-header>
     <md-card-title-group>
@@ -36,7 +36,7 @@
           {{job.title}}
         </h5>
       </md-card-title>
-      <md-card-subtitle>Rating: <strong>{{data?.rating}}</strong></md-card-subtitle>
+      <md-card-subtitle>Rating: <strong>{{data.applieduser?.rating}}</strong></md-card-subtitle>
     </md-card-title-group>
   </md-card-header>
   <md-card-content>
@@ -44,7 +44,7 @@
 </md-card>
 </span>
 <md-card-actions class="clear-fix">
-  <button class="apply" md-button>
+  <button class="apply" md-button (click)="approveUser()">
     Approve
   </button>
 </md-card-actions>
