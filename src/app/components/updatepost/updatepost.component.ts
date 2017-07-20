@@ -24,7 +24,6 @@ export class UpdatepostComponent implements OnInit {
   @ViewChild("search")
 
   public searchElementRef: ElementRef;
-  postedBy;
   public addPostForm: FormGroup;
 
   constructor(public auth: AuthService, public fb: FormBuilder,
@@ -38,13 +37,13 @@ export class UpdatepostComponent implements OnInit {
     this.addPostForm = this.fb.group(
       {
         'title': ['', Validators.required],
-        'description': ['', [Validators.required,Validators.minLength]],
+        'description': ['', [Validators.required]],
         'category': ['', Validators.required],
         'duration': ['', Validators.required],
         'hourlyRate': ['', Validators.required],
         'preferredDate': ['', Validators.required],
         'preferredTime': ['', Validators.required],
-        'postedBy': [this.postedBy],
+        // 'postedBy': [],
         'locations': {
           address: [],
           coords: []
