@@ -33,6 +33,7 @@ import {ProfilePostedJobsComponent} from './components/profile-posted-jobs/profi
 import {ConfirmationDialog} from './components/confirmation-dialog/confirmation-dialog.component';
 import {JobListProfileService} from "./services/job-list-profile.service";
 import {CommentService} from "./services/comment.service";
+import {ApproveUserService} from "./services/approve-user.service";
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import {CommentService} from "./services/comment.service";
     EmitterService,
     UsersJobHistoryService,
     JobListProfileService,
-    CommentService
+    CommentService,
+    ApproveUserService
   ],
 
   entryComponents: [
