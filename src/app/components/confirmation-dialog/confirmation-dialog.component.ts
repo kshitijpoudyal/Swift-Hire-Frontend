@@ -8,11 +8,17 @@ import {MD_DIALOG_DATA} from "@angular/material";
     <md-dialog-content>{{ data }}</md-dialog-content>
     <md-dialog-actions>
       <button md-button md-dialog-close>No</button>
+      <span class="spacer"></span>
       <!-- Can optionally provide a result for the closing dialog. -->
       <button md-button [md-dialog-close]="true">Yes</button>
     </md-dialog-actions>
   `,
-  styles: []
+  styles: [
+    `.spacer {
+        flex: 1 1 auto;
+      }
+    `
+  ]
 })
 export class ConfirmationDialog implements OnInit {
 

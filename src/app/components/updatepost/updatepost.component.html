@@ -44,10 +44,10 @@
     <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
   </agm-map>
   <div class="clear-fix">
-    <button class="float-right" md-button [disabled]="!addPostForm.valid">
+    <button class="float-right" md-raised-button [disabled]="!addPostForm.valid">
       <i class="material-icons md-18">assignment</i> Post
     </button>
-    <button class="float-left" #closeBtn md-button md-dialog-close="true">
+    <button class="float-left" #closeBtn md-raised-button md-dialog-close="true">
       <i class="material-icons md-18">close</i> Close
     </button>
   </div>

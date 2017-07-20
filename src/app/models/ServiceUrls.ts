@@ -15,6 +15,8 @@ export class ServiceUrls {
   public static GET_PROFILE_APPLIED_JOBS_URL = ServiceUrls.BASE_URL + 'user/profile/applied-jobs/jobs/';
   public static PROFILE_POSTED_JOBS_URL = ServiceUrls.BASE_URL + 'user/profile/posted-jobs/';
   public static GET_PROFILE_POSTED_JOBS_URL = ServiceUrls.BASE_URL + 'user/profile/posted-jobs/jobs/';
+  public static APPROVE_USER_PROFILE = ServiceUrls.BASE_URL + 'user/approve/';
+  public static CLOSE_JOB_URL = ServiceUrls.BASE_URL + 'job/close/';
 
 
 }

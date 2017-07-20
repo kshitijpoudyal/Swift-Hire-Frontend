@@ -6,9 +6,10 @@
         <h5 class="job-title">{{jobDetailedList?.title}}
           <small>
             <md-icon class="base-align-icon">keyboard_arrow_right</md-icon>
-            {{jobDetailedList?.category}}</small>
+            {{jobDetailedList?.category}}
+          </small>
         </h5>
-        <span *ngIf="rating >= 0 && status==='completed'" class="rating">
+        <span *ngIf="jobPosted.rating >= 0 && status==='completed'" class="rating">
                   <md-icon *ngFor="let r of rating" class="star-icon">star_rate</md-icon>
                   <md-icon *ngFor="let r of norating" class="star-icon">star_border</md-icon>
                 </span>
@@ -34,16 +35,24 @@
     <hr>
     <div class="details row">
       <div class="col-md-3">
-        <a md-button mdTooltip="Preferred Date"><md-icon class="base-align-icon">date_range</md-icon> {{jobDetailedList?.preferred_date | date: 'dd/MM/yyyy'}}</a>
+        <a md-button mdTooltip="Preferred Date">
+          <md-icon class="base-align-icon">date_range</md-icon>
+          {{jobDetailedList?.preferred_date | date: 'dd/MM/yyyy'}}</a>
       </div>
       <div class="col-md-3">
-        <a md-button mdTooltip="Preferred Time"><md-icon class="base-align-icon">access_time</md-icon> {{jobDetailedList?.preferred_time}}</a>
+        <a md-button mdTooltip="Preferred Time">
+          <md-icon class="base-align-icon">access_time</md-icon>
+          {{jobDetailedList?.preferred_time}}</a>
       </div>
       <div class="col-md-3">
-        <a md-button mdTooltip="Job Duration"><md-icon class="base-align-icon">hourglass_empty</md-icon> {{jobDetailedList?.duration}} Hour(s)</a>
+        <a md-button mdTooltip="Job Duration">
+          <md-icon class="base-align-icon">hourglass_empty</md-icon>
+          {{jobDetailedList?.duration}} Hour(s)</a>
       </div>
       <div class="col-md-3">
-        <a md-button mdTooltip="Rate"><md-icon class="base-align-icon">attach_money</md-icon> {{jobDetailedList?.hourly_rate}}/Hour</a>
+        <a md-button mdTooltip="Rate">
+          <md-icon class="base-align-icon">attach_money</md-icon>
+          {{jobDetailedList?.hourly_rate}}/Hour</a>
       </div>
     </div>
     <hr>
@@ -59,7 +68,7 @@
      <div *ngIf="status==='completed' && !jobDetailedList.comment"> 
       <div class="row">
         <div class="col-sm-11 comment">
-            <p class="feedback">this is a feed back from employee!!</p>
+          <p class="feedback">this is a feed back from employee!!</p>
         </div>
         <div class="col-sm-1">
           <img md-card-avatar src="{{this.auth.getUser()?.picture}}">
@@ -80,13 +89,21 @@
 
     <div *ngIf="status==='pending'" class="row applied-users">
       <div class="col-sm-12">
-        <span *ngIf="!appliedusers?.length > 0">
+        <span *ngIf="appliedusers?.length <= 0">
           <p class="lead">No one has applied for this job till now!!</p>
         </span>
         <span *ngFor="let applieduser of appliedusers">
-           <img md-card-avatar (click)="openUserDialog(applieduser)" mdTooltip="{{applieduser.name}}" src="{{applieduser?.picture}}">
+           <img md-card-avatar (click)="openUserDialog(applieduser)" mdTooltip="{{applieduser.name}}"
+                src="{{applieduser?.picture}}">
         </span>
       </div>
     </div>
+
+    <div class="clear-fix">
+      <div *ngIf="status==='ongoing'" class="row applied-users float-right">
+        <button class="float-right" md-raised-button (click)="closeJob()">Close This Job</button>
+      </div>
+    </div>
+
   </md-card-content>
 </md-card>
