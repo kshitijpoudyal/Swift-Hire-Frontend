@@ -11,16 +11,16 @@ import {UsersJobHistoryService} from "../../services/users-job-history.service";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit{
-  jobsPosted:any;
-  jobsApplyed:any;
+  jobsPosted:any=[];
+  jobsApplied:any=[];
   ngOnInit(): void {
     this.joblist.postedJobList(this.auth.getUser().identities[0].user_id).subscribe(data=>{
-      this.jobsPosted = data.jobs.jobs_posted[0];
+      this.jobsPosted = data.jobs.jobs_posted;
       console.log(this.jobsPosted);
     });
 
     this.joblist.appliedJoblist(this.auth.getUser().identities[0].user_id).subscribe(data=>{
-      this.jobsApplyed = data.jobs.jobs_applied[0];
+      this.jobsApplied = data.jobs.jobs_applied;
     });
   }
 

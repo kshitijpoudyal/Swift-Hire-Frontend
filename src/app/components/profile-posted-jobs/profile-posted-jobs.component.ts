@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {MdDialog} from "@angular/material";
-import {UsersJobHistoryService} from "app/services/users-job-history.service";
 import {UserinfodialogComponent} from "../userinfodialog/userinfodialog.component";
+import {JobListProfileService} from "../../services/job-list-profile.service";
 
 @Component({
   selector: 'app-profile-posted-jobs',
@@ -10,31 +10,28 @@ import {UserinfodialogComponent} from "../userinfodialog/userinfodialog.componen
   styleUrls: ['./profile-posted-jobs.component.css']
 })
 export class ProfilePostedJobsComponent implements OnInit {
-
+  @Input()jobPosted;
   profile;
-  rating:number[];
   status:string;
+  rating:number[];
   norating:number[];
-  appliedusers:object[];
-  jobsPosted:any;
-  constructor(public auth: AuthService,public dialogBox: MdDialog,public joblist:UsersJobHistoryService) {
-    this.rating = [1,2,3];
-    this.norating = [1,2];
-    //this.status = "ongoing";
-    this.appliedusers = [{name:'Kshitij'},
-      {name:'Sulav'},
-      {name:'Jamuna'},
-      {name:'Manoj'},
-      {name:'Candle'},
-      {name:'Dinesh'}];
+  appliedusers:any=[];
+  jobDetailedList:any=[];
+  constructor(public auth: AuthService,public dialogBox: MdDialog, public jobs: JobListProfileService) {
+
   }
 
   ngOnInit() {
     this.profile = this.auth.getUser();
 
-    this.joblist.postedJobList(this.auth.getUser().identities[0].user_id).subscribe(data=>{
-      this.jobsPosted = data.jobs.jobs_posted[0];
-      console.log(this.jobsPosted);
+    this.jobs.postedJobList(this.jobPosted.job_id).subscribe(data=>{
+      this.jobDetailedList = data.jobs;
+      this.appliedusers = data.jobs.applied_by;
+      this.status = data.jobs.status;
+      if(data.jobs.rating>=0){
+        this.rating = Array(data.jobs.rating).fill("*");
+        this.norating = Array(5-data.jobs.rating).fill("*");
+      }
     });
   }
   openUserDialog() {
