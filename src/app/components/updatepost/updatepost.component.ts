@@ -1,4 +1,3 @@
-
 import {Component, OnInit, ViewChild, ElementRef, NgZone, EventEmitter} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {MdDialogRef, MdNativeDateModule, MdDatepickerModule} from "@angular/material";
@@ -19,8 +18,6 @@ export class UpdatepostComponent implements OnInit {
   public searchControl: FormControl;
   public zoom: number;
   public add: string;
-  //jobUpdated: EventEmitter<any> = new EventEmitter<any>();
-
   @ViewChild("search")
 
   public searchElementRef: ElementRef;
@@ -37,13 +34,12 @@ export class UpdatepostComponent implements OnInit {
     this.addPostForm = this.fb.group(
       {
         'title': ['', Validators.required],
-        'description': ['', [Validators.required]],
+        'description': ['', Validators.required],
         'category': ['', Validators.required],
         'duration': ['', Validators.required],
         'hourlyRate': ['', Validators.required],
         'preferredDate': ['', Validators.required],
         'preferredTime': ['', Validators.required],
-        // 'postedBy': [],
         'locations': {
           address: [],
           coords: []
@@ -53,10 +49,10 @@ export class UpdatepostComponent implements OnInit {
 
   onSubmit() {
     this.jobService.add(this.addPostForm, this.add, this.longitude, this.latitude).subscribe(data => {
-      if(data.job){
-        console.log("response data:"+data.job);
+      if (data.job) {
+        console.log("response data:" + data.job);
         this.emitter.setEventEmitter(data.job);
-      }else{
+      } else {
         console.log("Job Not Added!!");
       }
 

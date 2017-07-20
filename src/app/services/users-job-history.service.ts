@@ -14,7 +14,7 @@ export class UsersJobHistoryService {
     return this.authHttp.get(ServiceUrls.PROFILE_APPLIED_JOBS_URL+user_id).map(res => res.json());
   }
 
-  postedJobList(user_id){
+  postedJoblist(user_id){
     return this.authHttp.get(ServiceUrls.PROFILE_POSTED_JOBS_URL+user_id).map(res => res.json());
   }
 

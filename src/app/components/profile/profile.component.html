@@ -15,7 +15,9 @@
   <div class="col-sm-8 col-md-6 col-centered">
     <md-tab-group md-stretch-tabs>
       <md-tab label="Applied Jobs">
-        <app-profile-applied-jobs></app-profile-applied-jobs>
+        <p *ngFor="let jobApplied of jobsApplied | convertToArray">
+          <app-profile-applied-jobs [jobApplied]="jobApplied"></app-profile-applied-jobs>
+        </p>
       </md-tab>
 
       <md-tab label="Posted Jobs">
