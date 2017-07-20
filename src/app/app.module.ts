@@ -32,12 +32,8 @@ import {ProfileAppliedJobsComponent} from "./components/profile-applied-jobs/pro
 import {ProfilePostedJobsComponent} from './components/profile-posted-jobs/profile-posted-jobs.component';
 import {ConfirmationDialog} from './components/confirmation-dialog/confirmation-dialog.component';
 import {JobListProfileService} from "./services/job-list-profile.service";
-<<<<<<< HEAD
-import { CommentService } from "app/services/comment.service";
-=======
 import {CommentService} from "./services/comment.service";
 import {ApproveUserService} from "./services/approve-user.service";
->>>>>>> 3bd7294c16c0826f477687002055c4bda6eb234d
 
 @NgModule({
   declarations: [
@@ -81,12 +77,8 @@ import {ApproveUserService} from "./services/approve-user.service";
     EmitterService,
     UsersJobHistoryService,
     JobListProfileService,
-<<<<<<< HEAD
-    CommentService
-=======
     CommentService,
     ApproveUserService
->>>>>>> 3bd7294c16c0826f477687002055c4bda6eb234d
   ],
 
   entryComponents: [
