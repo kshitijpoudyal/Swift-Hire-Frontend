@@ -65,7 +65,7 @@
       </div>
     </div>
 
-    <div *ngIf="status==='completed' && !jobDetailedList.comment">
+     <div *ngIf="status==='completed' && !jobDetailedList.comment"> 
       <div class="row">
         <div class="col-sm-11 comment">
           <p class="feedback">this is a feed back from employee!!</p>
@@ -81,7 +81,7 @@
         </div>
         <div class="col-sm-11 comment">
           <md-input-container class="full-width">
-            <textarea mdInput placeholder="Give a Feedback"></textarea>
+            <textarea mdInput placeholder="Give a Feedback" #comment (keyup.enter)="commentPosted(comment.value)"></textarea>
           </md-input-container>
         </div>
       </div>

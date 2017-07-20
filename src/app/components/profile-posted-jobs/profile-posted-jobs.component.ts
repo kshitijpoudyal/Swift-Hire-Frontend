@@ -3,6 +3,7 @@ import {AuthService} from "../../services/auth.service";
 import {MdDialog} from "@angular/material";
 import {UserinfodialogComponent} from "../userinfodialog/userinfodialog.component";
 import {JobListProfileService} from "../../services/job-list-profile.service";
+import { CommentService } from "app/services/comment.service";
 import {JobService} from "../../services/job.service";
 
 @Component({
@@ -13,13 +14,12 @@ import {JobService} from "../../services/job.service";
 export class ProfilePostedJobsComponent implements OnInit {
   @Input() jobPosted;
   profile;
-  status: string;
-  rating: number[];
-  norating: number[];
-  appliedusers: any = [];
-  jobDetailedList: any = [];
-
-  constructor(public auth: AuthService, public dialogBox: MdDialog, public jobs: JobListProfileService, public jobService: JobService, public changeDetector: ChangeDetectorRef) {
+  status:string;
+  rating:number[];
+  norating:number[];
+  appliedusers:any=[];
+  jobDetailedList:any=[];
+  constructor(public auth: AuthService,public dialogBox: MdDialog, public jobs: JobListProfileService,public commentPostService:CommentService, public jobService: JobService, public changeDetector: ChangeDetectorRef) {
 
   }
 
@@ -47,5 +47,11 @@ export class ProfilePostedJobsComponent implements OnInit {
   closeJob() {
     this.jobService.closeJob(this.jobPosted.job_id).subscribe(data => {
     });
+  }
+  commentPosted(comments){
+    return this.commentPostService.commentForEmployer(comments,this.jobPosted.job_id,this.jobDetailedList.approved_user._id).subscribe(data=>{
+      console.log("----->"+JSON.stringify(data));
+      
+    })
   }
 }
