@@ -44,10 +44,23 @@ a{
   color: dodgerblue;
 }
 .completed{
-  color: greenyellow;
+  color: #4CAF50;
+}
+
+.pending{
+  color: #9C27B0;
 }
 
 .applied-users img{
   margin-right: 10px;
   float: right;
+}
+
+.status{
+  font-size: small;
+  float: right;
+}
+
+.feedback{
+  font-size: medium;
 }

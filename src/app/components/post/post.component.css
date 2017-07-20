@@ -24,6 +24,7 @@ md-card-content{
 }
 .apply{
   float: right;
+  margin: 10px;
 }
 .card{
   margin-top: 20px;

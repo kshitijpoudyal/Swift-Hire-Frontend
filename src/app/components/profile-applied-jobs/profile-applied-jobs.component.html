@@ -1,55 +1,89 @@
 <md-card class="job-card">
   <md-card-header>
-    <img md-card-avatar md-card-sm-image src="{{this.auth.getUser().picture}}">
+    <img md-card-avatar md-card-sm-image src="{{posteduser?.picture}}">
     <div class="card-title-group">
       <md-card-title class="card-title clear-fix">
-        <h5 class="job-title">New Job is here asdad!!!
+        <h5 class="job-title">{{jobDetailedList?.title}}
           <small>
             <md-icon class="base-align-icon">keyboard_arrow_right</md-icon>
-            Plumber</small>
+            {{jobDetailedList?.category}}</small>
         </h5>
-        <span *ngIf="rating" class="rating">
+        <span *ngIf="rating >= 0 && status==='completed'" class="rating">
                   <md-icon *ngFor="let r of rating" class="star-icon">star_rate</md-icon>
                   <md-icon *ngFor="let r of norating" class="star-icon">star_border</md-icon>
                 </span>
-        <span *ngIf="!rating && status==='ongoing'" class="rating ongoing">
+        <span *ngIf="jobDetailedList.status==='ongoing'" class="rating ongoing">
                   Ongoing
                 </span>
-        <span *ngIf="!rating && status==='completed'" class="rating completed">
+        <span *ngIf="jobDetailedList.status==='completed'" class="rating completed">
                   Completed
+                </span>
+        <span *ngIf="jobDetailedList.status==='pending'" class="rating pending">
+                  Pending
                 </span>
       </md-card-title>
       <md-card-subtitle>
-        Offered by: <strong>Kshitij Chandra Poudyal</strong> in <strong>Fairfield, Iowa</strong>
+        Offered by: <strong>{{posteduser?.name}}</strong> in <strong>{{jobDetailedList?.location?.address}}</strong>
       </md-card-subtitle>
     </div>
   </md-card-header>
   <md-card-content>
     <p class="description">
-      Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+      {{jobDetailedList.description}}
     </p>
     <hr>
     <div class="details row">
       <div class="col-md-3">
-        <a md-button mdTooltip="Preferred Date"><md-icon class="base-align-icon">date_range</md-icon> 24 April, 2017</a>
+        <a md-button mdTooltip="Preferred Date"><md-icon class="base-align-icon">date_range</md-icon> {{jobDetailedList?.preferred_date | date: 'dd/MM/yyyy'}}</a>
       </div>
       <div class="col-md-3">
-        <a md-button mdTooltip="Preferred Time"><md-icon class="base-align-icon">access_time</md-icon> 12:00 PM</a>
+        <a md-button mdTooltip="Preferred Time"><md-icon class="base-align-icon">access_time</md-icon> {{jobDetailedList?.preferred_time}}</a>
       </div>
       <div class="col-md-3">
-        <a md-button mdTooltip="Job Duration"><md-icon class="base-align-icon">hourglass_empty</md-icon> 2 hours</a>
+        <a md-button mdTooltip="Job Duration"><md-icon class="base-align-icon">hourglass_empty</md-icon> {{jobDetailedList?.duration}} Hour(s)</a>
       </div>
       <div class="col-md-3">
-        <a md-button mdTooltip="Rate"><md-icon class="base-align-icon">attach_money</md-icon> 20/hour</a>
+        <a md-button mdTooltip="Rate"><md-icon class="base-align-icon">attach_money</md-icon> {{jobDetailedList?.hourly_rate}}/Hour</a>
       </div>
     </div>
     <hr>
-    <div class="row">
+    <div *ngIf="status==='completed' && jobApplied.feedback" class="row">
       <div class="col-sm-11 comment">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        <p *ngIf="jobApplied.comment">{{jobApplied.feedback}}</p>
       </div>
       <div class="col-sm-1">
         <img md-card-avatar src="{{this.auth.getUser()?.picture}}">
+      </div>
+    </div>
+    <div *ngIf="canIComment()">
+      <div class="row">
+        <div class="col-sm-11 comment">
+          <p class="feedback">this is a feed back from employee!!</p>
+        </div>
+        <div class="col-sm-1">
+          <img md-card-avatar src="{{this.auth.getUser()?.picture}}">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-1">
+          <img md-card-avatar src="{{this.auth.getUser()?.picture}}">
+        </div>
+        <div class="col-sm-10 comment">
+          Give a Rating<md-slider class="full-width"
+            (input)="onSliderChange($event)"
+            [max]="5"
+            [min]="0"
+            [step]="1"
+            [thumb-label]="true">
+          </md-slider>
+          <md-input-container class="full-width">
+            <textarea mdInput placeholder="Give a Feedback" #feedback></textarea>
+          </md-input-container>
+        </div>
+      </div>
+      <div class="clear-fix">
+        <button class="float-right" md-raised-button (click)="updateFeedBack(feedback.value)">Give Feedback</button>
       </div>
     </div>
   </md-card-content>

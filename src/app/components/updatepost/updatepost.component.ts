@@ -20,12 +20,14 @@ export class UpdatepostComponent implements OnInit {
   public add: string;
   @ViewChild("search")
 
+  //public closeEvent: EventEmitter<string>;
   public searchElementRef: ElementRef;
   public addPostForm: FormGroup;
 
   constructor(public auth: AuthService, public fb: FormBuilder,
               private mapsAPILoader: MapsAPILoader,
               private ngZone: NgZone, public jobService: JobService, public emitter: EmitterService) {
+    //this.closeEvent = new EventEmitter();
     this.createForm();
 
   }
@@ -55,6 +57,9 @@ export class UpdatepostComponent implements OnInit {
       } else {
         console.log("Job Not Added!!");
       }
+
+    },(err)=>console.log(err),
+    function () {
 
     });
 
