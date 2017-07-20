@@ -53,7 +53,7 @@ export class UpdatepostComponent implements OnInit {
   }
 
   onSubmit() {
-    this.jobService.add(this.addPostForm, this.searchControl, this.longitude, this.latitude).subscribe(data => {
+    this.jobService.add(this.addPostForm, this.add, this.longitude, this.latitude).subscribe(data => {
       if(data.job){
         console.log("response data:"+data.job);
         this.emitter.setEventEmitter(data.job);

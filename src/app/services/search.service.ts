@@ -13,6 +13,8 @@ export class SearchService {
 
   searchJobs(searchQuery, category, location, minFees) {
 
+    let id = this.auth.getUser().identities[0].user_id;
+
     let params = {
       'searchQuery': searchQuery ? searchQuery : '',
       'category': category ? category : '',
@@ -20,7 +22,7 @@ export class SearchService {
       'minFees': minFees ? minFees : 0
     };
 
-    return this.http.get(ServiceUrls.JOB_SEARCH_URL, {search: params})
+    return this.http.get(ServiceUrls.JOB_SEARCH_URL + id, {search: params})
       .map(res => res.json());
   }
 
