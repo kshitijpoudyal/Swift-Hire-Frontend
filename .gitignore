@@ -3,7 +3,7 @@
 # .gitignore for angular 2
 
 # compiled output
-/dist
+# /dist
 /tmp
 /out-tsc
 
