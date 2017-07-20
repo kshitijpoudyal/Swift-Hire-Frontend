@@ -1,50 +1,37 @@
-<!--<md-card class="example-card">-->
-<!--<img md-card-avatar md-card-md-image src="{{data.picture}}">-->
-<!--<md-card-content>-->
-<!--<p>-->
-<!--The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
-<!--A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally-->
-<!--bred for hunting.-->
-<!--</p>-->
-<!--</md-card-content>-->
-<!--<md-card-actions>-->
-<!--<button md-button>LIKE</button>-->
-<!--<button md-button>SHARE</button>-->
-<!--</md-card-actions>-->
-<!--</md-card>-->
-<!--<img md-card-avatar md-card-md-image src="{{data.picture}}">-->
-<md-card-header>
-  <img md-card-avatar md-card-sm-image src="{{data.applieduser.picture}}">
-  <md-card-title-group class="margin-5">
-    <md-card-title>
-      <h5>
-        {{data.applieduser.name}}
-      </h5>
-    </md-card-title>
-    <md-card-subtitle>Email: <strong>{{data.applieduser?.email}}</strong></md-card-subtitle>
-  </md-card-title-group>
-</md-card-header>
-<md-card-content>
-</md-card-content>
-<hr>
-<span *ngFor="let job of data.applieduser.jobs_applied">
-<md-card>
+<div class="size">
   <md-card-header>
-    <md-card-title-group>
+    <img md-card-avatar md-card-sm-image src="{{data.applieduser.picture}}">
+    <md-card-title-group class="margin-5">
       <md-card-title>
         <h5>
-          {{job.title}}
+          {{data.applieduser.name}}
         </h5>
       </md-card-title>
-      <md-card-subtitle>Rating: <strong>{{data.applieduser?.rating}}</strong></md-card-subtitle>
+      <md-card-subtitle>Email: <strong>{{data.applieduser?.email}}</strong></md-card-subtitle>
     </md-card-title-group>
   </md-card-header>
-  <md-card-content>
-  </md-card-content>
-</md-card>
-</span>
-<md-card-actions class="clear-fix">
-  <button class="apply" md-button (click)="approveUser()">
-    Approve
-  </button>
-</md-card-actions>
+  <hr>
+  <md-list>
+    <md-list-item *ngFor="let job of data.applieduser.jobs_applied">
+      <div class="row">
+        <div class="col-sm-4">
+          {{job.title}}
+        </div>
+        <div class="col-sm-4">
+          <md-icon class="star-icon">star_rate</md-icon><md-icon class="star-icon">star_rate</md-icon><md-icon class="star-icon">star_rate</md-icon>
+          <!--Rating: <strong>{{job.rating}}</strong>-->
+        </div>
+        <div class="col-sm-4">
+          <!--Comment: <strong>{{job.comment}}</strong>-->
+          Good Job!
+        </div>
+      </div>
+    </md-list-item>
+  </md-list>
+
+  <md-card-actions class="clear-fix">
+    <button class="apply float-right" md-button (click)="approveUser()">
+      Approve
+    </button>
+  </md-card-actions>
+</div>

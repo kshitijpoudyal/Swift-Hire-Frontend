@@ -1,6 +1,6 @@
 <div class="profile-void-box"></div>
 <div class="user-card row">
-  <div class="col-sm-8 col-md-6 col-centered">
+  <div class="col-sm-10 col-md-7 col-centered">
     <md-card>
       <md-card-content class="text-center user-content">
         <img md-card-avatar md-card-lg-image src="{{this.auth.getUser()?.picture}}">
@@ -12,7 +12,7 @@
 </div>
 
 <div class="row user-history">
-  <div class="col-sm-8 col-md-6 col-centered">
+  <div class="col-sm-10 col-md-7 col-centered">
     <md-tab-group md-stretch-tabs>
       <md-tab label="Applied Jobs">
         <p *ngFor="let jobApplied of jobsApplied | convertToArray">
