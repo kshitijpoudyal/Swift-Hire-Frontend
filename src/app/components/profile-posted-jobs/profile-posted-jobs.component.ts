@@ -48,10 +48,10 @@ export class ProfilePostedJobsComponent implements OnInit {
     this.jobService.closeJob(this.jobPosted.job_id).subscribe(data => {
     });
   }
-  commentPosted(comment){
-    console.log("KEy enter"+JSON.stringify(this.jobDetailedList.approved_user._id) );
-    return this.commentPostService.commentForEmployer(comment,this.jobPosted.job_id,this.jobPosted.posted_by).subscribe(data=>{
+  commentPosted(comments){
+    return this.commentPostService.commentForEmployer(comments,this.jobPosted.job_id,this.jobDetailedList.approved_user._id).subscribe(data=>{
       console.log("----->"+JSON.stringify(data));
+      
     })
   }
 }

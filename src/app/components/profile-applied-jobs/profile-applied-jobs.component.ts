@@ -48,9 +48,9 @@ export class ProfileAppliedJobsComponent implements OnInit {
   }
 
   canIComment(){
-    console.log("can i comment: "+this.jobApplied.title);
-    console.log(this.status,this.jobApplied.feedback);
-    console.log(this.status==='completed' && this.jobApplied.feedback==='');
+    // console.log("can i comment: "+this.jobApplied.title);
+    // console.log(this.status,this.jobApplied.feedback);
+    // console.log(this.status==='completed' && this.jobApplied.feedback==='');
     return this.status==='completed' && this.jobApplied.feedback==='';
   }
 
