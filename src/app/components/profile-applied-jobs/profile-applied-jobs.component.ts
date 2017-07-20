@@ -51,7 +51,7 @@ export class ProfileAppliedJobsComponent implements OnInit {
     console.log("can i comment: "+this.jobApplied.title);
     console.log(this.status,this.jobApplied.feedback);
     console.log(this.status==='completed' && this.jobApplied.feedback==='');
-    return this.status==='completed' && this.jobApplied.feedback==='';
+    return this.status==='completed' && this.jobApplied.rating===-1;
   }
 
 }
