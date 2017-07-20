@@ -32,6 +32,7 @@ import {ProfileAppliedJobsComponent} from "./components/profile-applied-jobs/pro
 import {ProfilePostedJobsComponent} from './components/profile-posted-jobs/profile-posted-jobs.component';
 import {ConfirmationDialog} from './components/confirmation-dialog/confirmation-dialog.component';
 import {JobListProfileService} from "./services/job-list-profile.service";
+import {CommentService} from "./services/comment.service";
 
 @NgModule({
   declarations: [
@@ -65,7 +66,7 @@ import {JobListProfileService} from "./services/job-list-profile.service";
     provide: AuthHttp,
     useFactory: authHttpServiceFactory,
     deps: [Http, RequestOptions]
-  }, 
+  },
     AuthService,
     SearchService,
     AuthGuard,
@@ -74,7 +75,8 @@ import {JobListProfileService} from "./services/job-list-profile.service";
     ApplyService,
     EmitterService,
     UsersJobHistoryService,
-    JobListProfileService
+    JobListProfileService,
+    CommentService
   ],
 
   entryComponents: [
