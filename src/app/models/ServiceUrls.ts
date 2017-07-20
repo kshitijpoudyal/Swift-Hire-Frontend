@@ -10,7 +10,9 @@ export class ServiceUrls {
   public static ADD_JOB_URL = ServiceUrls.BASE_URL + 'job/add/';
   public static LIST_JOBS_URL = ServiceUrls.BASE_URL + 'job/list/';
   public static PROFILE_APPLIED_JOBS_URL = ServiceUrls.BASE_URL + 'user/profile/applied-jobs/';
+  public static GET_PROFILE_APPLIED_JOBS_URL = ServiceUrls.BASE_URL + 'user/profile/applied-jobs/jobs/';
   public static PROFILE_POSTED_JOBS_URL = ServiceUrls.BASE_URL + 'user/profile/posted-jobs/';
+  public static GET_PROFILE_POSTED_JOBS_URL = ServiceUrls.BASE_URL + 'user/profile/posted-jobs/jobs/';
 
 
 }

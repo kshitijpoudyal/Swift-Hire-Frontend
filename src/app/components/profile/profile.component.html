@@ -19,7 +19,9 @@
       </md-tab>
 
       <md-tab label="Posted Jobs">
-        <app-profile-posted-jobs></app-profile-posted-jobs>
+        <p *ngFor="let jobPosted of jobsPosted | convertToArray">
+          <app-profile-posted-jobs [jobPosted]="jobPosted"></app-profile-posted-jobs>
+        </p>
       </md-tab>
     </md-tab-group>
   </div>

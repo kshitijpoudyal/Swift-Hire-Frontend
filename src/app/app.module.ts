@@ -31,6 +31,7 @@ import {UsersJobHistoryService} from "./services/users-job-history.service";
 import {ProfileAppliedJobsComponent} from "./components/profile-applied-jobs/profile-applied-jobs.component";
 import {ProfilePostedJobsComponent} from './components/profile-posted-jobs/profile-posted-jobs.component';
 import {ConfirmationDialog} from './components/confirmation-dialog/confirmation-dialog.component';
+import {JobListProfileService} from "./services/job-list-profile.service";
 
 @NgModule({
   declarations: [
@@ -64,8 +65,17 @@ import {ConfirmationDialog} from './components/confirmation-dialog/confirmation-
     provide: AuthHttp,
     useFactory: authHttpServiceFactory,
     deps: [Http, RequestOptions]
-
-  }, AuthService, SearchService, AuthGuard, JoblistService, JobService, ApplyService, EmitterService, UsersJobHistoryService],
+  }, 
+    AuthService,
+    SearchService,
+    AuthGuard,
+    JoblistService,
+    JobService,
+    ApplyService,
+    EmitterService,
+    UsersJobHistoryService,
+    JobListProfileService
+  ],
 
   entryComponents: [
     UpdatepostComponent,
