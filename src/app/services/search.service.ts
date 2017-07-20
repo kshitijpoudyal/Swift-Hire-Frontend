@@ -22,7 +22,7 @@ export class SearchService {
       'minFees': minFees ? minFees : 0
     };
 
-    return this.http.get(ServiceUrls.JOB_SEARCH_URL + id, {search: params})
+    return this.authHttp.get(ServiceUrls.JOB_SEARCH_URL + id, {search: params})
       .map(res => res.json());
   }
 
