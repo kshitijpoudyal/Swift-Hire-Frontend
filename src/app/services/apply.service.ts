@@ -34,6 +34,6 @@ export class ApplyService {
     jobInfo.posted_by = data.posted_by;
     jobInfo.status = data.status;
     jobInfo.approved_user = data.approved_user;
-    return this.http.post(ServiceUrls.APPLY_JOB_URL, {jobInfo, userInfo}).map(res => res.json());
+    return this.authHttp.post(ServiceUrls.APPLY_JOB_URL, {jobInfo, userInfo}).map(res => res.json());
   }
 }

@@ -11,7 +11,7 @@ export class ApproveUserService {
 
   approveUser(data) {
     let reqData = {'userInfo': data.applieduser, 'jobInfo': data.jobDetail};
-    return this.http.post(ServiceUrls.APPROVE_USER_PROFILE, reqData).map(res => res.json());
+    return this.authHttp.post(ServiceUrls.APPROVE_USER_PROFILE, reqData).map(res => res.json());
   }
 
 }

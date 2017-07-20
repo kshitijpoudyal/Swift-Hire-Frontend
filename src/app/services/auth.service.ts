@@ -1,7 +1,7 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {Router} from "@angular/router";
 import 'rxjs/add/operator/filter';
-import {tokenNotExpired} from "angular2-jwt";
+import {AuthHttp, tokenNotExpired} from "angular2-jwt";
 
 import Auth0Lock from 'auth0-lock';
 import {Http} from "@angular/http";
@@ -31,7 +31,7 @@ export class AuthService {
     }
   });
 
-  constructor(public route: Router, public http: Http) {
+  constructor(public route: Router, public http: Http, public authHttp: AuthHttp) {
     this.loggedIn = new EventEmitter();
     this.lock.on('authenticated', (authResult) => {
       let profile = authResult.idTokenPayload;
@@ -45,7 +45,7 @@ export class AuthService {
       userInfo.name = profile.name;
       userInfo.email = profile.email;
       userInfo.picture = profile.picture;
-      http.post(ServiceUrls.ADD_USER_URL, {userInfo: userInfo}).map(res => res.json()).subscribe(data => {
+      authHttp.post(ServiceUrls.ADD_USER_URL, {userInfo: userInfo}).map(res => res.json()).subscribe(data => {
 
       });
 

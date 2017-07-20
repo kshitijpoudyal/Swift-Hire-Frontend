@@ -3,6 +3,7 @@
  */
 
 export class ServiceUrls {
+  // public static BASE_URL = 'http://swifthire.herokuapp.com/';
   public static BASE_URL = 'http://localhost:8080/';
   public static JOB_SEARCH_URL = ServiceUrls.BASE_URL + 'job/search/';
   public static APPLY_JOB_URL = ServiceUrls.BASE_URL + 'job/apply/';
