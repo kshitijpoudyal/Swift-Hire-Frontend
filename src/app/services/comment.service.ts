@@ -13,7 +13,7 @@ export class CommentService {
   }
 
   addComment(uId, jobId, feedback, rating) {
-    return this.http.post(ServiceUrls.ADD_COMMENT_URL, {uId, jobId, feedback, rating}).map(res => res.json());
+    return this.authHttp.post(ServiceUrls.ADD_COMMENT_URL, {uId, jobId, feedback, rating}).map(res => res.json());
   }
 
   commentForEmployer(data: any, jobId: string, empId) {
